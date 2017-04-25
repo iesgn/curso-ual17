@@ -1,6 +1,6 @@
 ## Configuración post-instalación
 
-###Creación de la red externa
+### Creación de la red externa
 
 La red externa es típicamente una red que proporciona conexión con el
 exterior a las redes internas que posteriormente se crearán en
@@ -65,7 +65,7 @@ flotantes de las instancias que correran sobre OpenStack:
     | tenant_id         | e87ac1a9b6344a5cbaf0011f738042c3             |
     +-------------------+----------------------------------------------+
 
-###Creación de proyectos y usuarios
+### Creación de proyectos y usuarios
 Inicialmente existen 3 proyectos:
 
     openstack project list
