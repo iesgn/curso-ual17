@@ -18,6 +18,7 @@
  ## Playbooks ansible para la instalación de Openstack Ocata
 
  * [Repositorio: openstack-ubuntu-ansible](https://github.com/iesgn/openstack-ubuntu-ansible/tree/ocata)
+ * [Configuración post-instalación](post)
 
  ## Otros documentos
 
