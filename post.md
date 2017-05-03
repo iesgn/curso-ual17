@@ -14,28 +14,37 @@ externa sólo la puede crear alguien con este rol:
 Utilizando el cliente de línea de comandos de neutron que explicaremos
 con detalle en temas posteriores creamos la red externa:
 
-    neutron net-create ext-net --router:external \
-    > --provider:physical_network external --provider:network_type flat
-    Created a new network:
+    openstack network create ext-net
     +---------------------------+--------------------------------------+
     | Field                     | Value                                |
     +---------------------------+--------------------------------------+
-    | admin_state_up            | True                                 |
-    | id                        | 149a5666-72a7-4d7f-91e2-855548fb3cb3 |
-    | mtu                       | 0                                    |
+    | admin_state_up            | UP                                   |
+    | availability_zone_hints   |                                      |
+    | availability_zones        |                                      |
+    | created_at                | 2017-05-03T16:42:12Z                 |
+    | description               |                                      |
+    | dns_domain                | None                                 |
+    | id                        | a5d28859-889e-49e2-933a-0323dea671a6 |
+    | ipv4_address_scope        | None                                 |
+    | ipv6_address_scope        | None                                 |
+    | is_default                | None                                 |
+    | mtu                       | 1450                                 |
     | name                      | ext-net                              |
-    | provider:network_type     | flat                                 |
-    | provider:physical_network | external                             |
-    | provider:segmentation_id  |                                      |
-    | router:external           | True                                 |
+    | port_security_enabled     | True                                 |
+    | project_id                | cc5c6e16149c4e1ea42753e11cbb6ede     |
+    | provider:network_type     | vxlan                                |
+    | provider:physical_network | None                                 |
+    | provider:segmentation_id  | 65587                                |
+    | qos_policy_id             | None                                 |
+    | revision_number           | 3                                    |
+    | router:external           | Internal                             |
+    | segments                  | None                                 |
     | shared                    | False                                |
     | status                    | ACTIVE                               |
     | subnets                   |                                      |
-    | tenant_id                 | e87ac1a9b6344a5cbaf0011f738042c3     |
+    | updated_at                | 2017-05-03T16:42:12Z                 |
     +---------------------------+--------------------------------------+
 
-El nombre "ext-net" es opcional, pero es el que habitualmente se
-utiliza cuando sólo existe una red externa.
 A continuación definimos una subred donde aparece la definición lógica
 de la red y cuyos valores dependerán de la red privada o pública a la
 que esté conectada. En este caso el equipo está conectado a la red
@@ -43,27 +52,51 @@ que esté conectada. En este caso el equipo está conectado a la red
 el segmento 192.168.1.150-192.168.1.160 para las direcciones IP
 flotantes de las instancias que correran sobre OpenStack:
 
-    neutron subnet-create ext-net 192.168.1.0/24 --name ext-subnet \
-    > --allocation-pool start=192.168.1.150,end=192.168.1.160 \
-    > --disable-dhcp --gateway 192.168.1.1
-    +-------------------+----------------------------------------------+
-    | Field             | Value                                        |
-    +-------------------+----------------------------------------------+
-    | allocation_pools  | {"start": "192.168.1.150", "end": "192.168...
-    | cidr              | 192.168.1.0/24                               |
-    | dns_nameservers   |                                              |
-    | enable_dhcp       | False                                        |
-    | gateway_ip        | 192.168.1.1                                  |
-    | host_routes       |                                              |
-    | id                | 20c498de-e130-4905-bc34-791e9202d5c5         |
-    | ip_version        | 4                                            |
-    | ipv6_address_mode |                                              |
-    | ipv6_ra_mode      |                                              |
-    | name              | ext-subnet                                   |
-    | network_id        | 149a5666-72a7-4d7f-91e2-855548fb3cb3         |
-    | subnetpool_id     |                                              |
-    | tenant_id         | e87ac1a9b6344a5cbaf0011f738042c3             |
-    +-------------------+----------------------------------------------+
+    openstack subnet create --network ext-net --subnet-range 10.0.0.0/24 --allocation-pool start=10.0.0.100,end=10.0.0.254 --no-dhcp --gateway 10.0.0.1 ext-subnet
+    +-------------------+--------------------------------------+
+    | Field             | Value                                |
+    +-------------------+--------------------------------------+
+    | allocation_pools  | 10.0.0.100-10.0.0.254                |
+    | cidr              | 10.0.0.0/24                          |
+    | created_at        | 2017-05-03T16:49:30Z                 |
+    | description       |                                      |
+    | dns_nameservers   |                                      |
+    | enable_dhcp       | False                                |
+    | gateway_ip        | 10.0.0.1                             |
+    | host_routes       |                                      |
+    | id                | b32a5cc1-6af7-43e7-94da-ad0e6e56be18 |
+    | ip_version        | 4                                    |
+    | ipv6_address_mode | None                                 |
+    | ipv6_ra_mode      | None                                 |
+    | name              | ext-subnet                           |
+    | network_id        | a5d28859-889e-49e2-933a-0323dea671a6 |
+    | project_id        | cc5c6e16149c4e1ea42753e11cbb6ede     |
+    | revision_number   | 2                                    |
+    | segment_id        | None                                 |
+    | service_types     |                                      |
+    | subnetpool_id     | None                                 |
+    | updated_at        | 2017-05-03T16:49:30Z                 |
+    +-------------------+--------------------------------------+
+
+### creación de un sabor
+
+    openstack flavor create --id 0 --vcpus 1 --ram 64 --disk 1 m1.nano
+    +----------------------------+---------+
+    | Field                      | Value   |
+    +----------------------------+---------+
+    | OS-FLV-DISABLED:disabled   | False   |
+    | OS-FLV-EXT-DATA:ephemeral  | 0       |
+    | disk                       | 1       |
+    | id                         | 0       |
+    | name                       | m1.nano |
+    | os-flavor-access:is_public | True    |
+    | properties                 |         |
+    | ram                        | 64      |
+    | rxtx_factor                | 1.0     |
+    | swap                       |         |
+    | vcpus                      | 1       |
+    +----------------------------+---------+
+
 
 ### Creación de proyectos y usuarios
 Inicialmente existen 3 proyectos:
@@ -127,3 +160,9 @@ definir una contraseña para este usuario:
 
 Si fueramos a añadir varios usuarios, podríamos fácilmente agilizar
 este proceso creando un shell script de forma bastante sencilla.
+
+### Creación del router y una red interna en el protecto demo
+
+Cargamos las credenciales del usuario demo:
+
+    source demo_openrc.sh
