@@ -14,7 +14,7 @@ externa sólo la puede crear alguien con este rol:
 Utilizando el cliente de línea de comandos de neutron que explicaremos
 con detalle en temas posteriores creamos la red externa:
 
-     openstack network create  --share --external --provider-physical-network provider --provider-network-type flat ext-net
+     openstack network create  --external --provider-physical-network provider --provider-network-type flat ext-net
     +---------------------------+--------------------------------------+
     | Field                     | Value                                |
     +---------------------------+--------------------------------------+
@@ -39,7 +39,7 @@ con detalle en temas posteriores creamos la red externa:
     | revision_number           | 4                                    |
     | router:external           | External                             |
     | segments                  | None                                 |
-    | shared                    | True                                 |
+    | shared                    | False                                 |
     | status                    | ACTIVE                               |
     | subnets                   |                                      |
     | updated_at                | 2017-05-03T18:53:54Z                 |
