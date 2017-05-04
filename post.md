@@ -14,35 +14,35 @@ externa sólo la puede crear alguien con este rol:
 Utilizando el cliente de línea de comandos de neutron que explicaremos
 con detalle en temas posteriores creamos la red externa:
 
-    openstack network create ext-net
+     openstack network create  --share --external --provider-physical-network provider --provider-network-type flat ext-net
     +---------------------------+--------------------------------------+
     | Field                     | Value                                |
     +---------------------------+--------------------------------------+
     | admin_state_up            | UP                                   |
     | availability_zone_hints   |                                      |
     | availability_zones        |                                      |
-    | created_at                | 2017-05-03T16:42:12Z                 |
+    | created_at                | 2017-05-03T18:53:54Z                 |
     | description               |                                      |
     | dns_domain                | None                                 |
-    | id                        | a5d28859-889e-49e2-933a-0323dea671a6 |
+    | id                        | 683d61d4-c9d7-4b78-9066-f1eb5ec6e0b4 |
     | ipv4_address_scope        | None                                 |
     | ipv6_address_scope        | None                                 |
-    | is_default                | None                                 |
-    | mtu                       | 1450                                 |
+    | is_default                | False                                |
+    | mtu                       | 1500                                 |
     | name                      | ext-net                              |
     | port_security_enabled     | True                                 |
     | project_id                | cc5c6e16149c4e1ea42753e11cbb6ede     |
-    | provider:network_type     | vxlan                                |
-    | provider:physical_network | None                                 |
-    | provider:segmentation_id  | 65587                                |
+    | provider:network_type     | flat                                 |
+    | provider:physical_network | provider                             |
+    | provider:segmentation_id  | None                                 |
     | qos_policy_id             | None                                 |
-    | revision_number           | 3                                    |
-    | router:external           | Internal                             |
+    | revision_number           | 4                                    |
+    | router:external           | External                             |
     | segments                  | None                                 |
-    | shared                    | False                                |
+    | shared                    | True                                 |
     | status                    | ACTIVE                               |
     | subnets                   |                                      |
-    | updated_at                | 2017-05-03T16:42:12Z                 |
+    | updated_at                | 2017-05-03T18:53:54Z                 |
     +---------------------------+--------------------------------------+
 
 A continuación definimos una subred donde aparece la definición lógica
@@ -52,31 +52,32 @@ que esté conectada. En este caso el equipo está conectado a la red
 el segmento 192.168.1.150-192.168.1.160 para las direcciones IP
 flotantes de las instancias que correran sobre OpenStack:
 
-    openstack subnet create --network ext-net --subnet-range 10.0.0.0/24 --allocation-pool start=10.0.0.100,end=10.0.0.254 --no-dhcp --gateway 10.0.0.1 ext-subnet
+    openstack subnet create --network ext-net --allocation-pool start=10.0.0.100,end=10.0.0.254 --dns-nameserver 192.168.102.2 --gateway 10.0.0.1 --subnet-range 10.0.0.0/24 ext-subnet
     +-------------------+--------------------------------------+
     | Field             | Value                                |
     +-------------------+--------------------------------------+
     | allocation_pools  | 10.0.0.100-10.0.0.254                |
     | cidr              | 10.0.0.0/24                          |
-    | created_at        | 2017-05-03T16:49:30Z                 |
+    | created_at        | 2017-05-03T18:56:00Z                 |
     | description       |                                      |
-    | dns_nameservers   |                                      |
-    | enable_dhcp       | False                                |
+    | dns_nameservers   | 192.168.102.2                        |
+    | enable_dhcp       | True                                 |
     | gateway_ip        | 10.0.0.1                             |
     | host_routes       |                                      |
-    | id                | b32a5cc1-6af7-43e7-94da-ad0e6e56be18 |
+    | id                | 61013897-8768-4a1c-ae0f-8b5562c41a6a |
     | ip_version        | 4                                    |
     | ipv6_address_mode | None                                 |
     | ipv6_ra_mode      | None                                 |
     | name              | ext-subnet                           |
-    | network_id        | a5d28859-889e-49e2-933a-0323dea671a6 |
+    | network_id        | 683d61d4-c9d7-4b78-9066-f1eb5ec6e0b4 |
     | project_id        | cc5c6e16149c4e1ea42753e11cbb6ede     |
     | revision_number   | 2                                    |
     | segment_id        | None                                 |
     | service_types     |                                      |
     | subnetpool_id     | None                                 |
-    | updated_at        | 2017-05-03T16:49:30Z                 |
+    | updated_at        | 2017-05-03T18:56:00Z                 |
     +-------------------+--------------------------------------+
+
 
 ### creación de un sabor
 
@@ -166,3 +167,94 @@ este proceso creando un shell script de forma bastante sencilla.
 Cargamos las credenciales del usuario demo:
 
     source demo_openrc.sh
+
+Creamos la red interna del proyecto:
+
+    openstack network create demo-net
+    +---------------------------+--------------------------------------+
+    | Field                     | Value                                |
+    +---------------------------+--------------------------------------+
+    | admin_state_up            | UP                                   |
+    | availability_zone_hints   |                                      |
+    | availability_zones        |                                      |
+    | created_at                | 2017-05-03T18:38:23Z                 |
+    | description               |                                      |
+    | dns_domain                | None                                 |
+    | id                        | 5afe9978-0451-4e3d-b53e-8adf1a392347 |
+    | ipv4_address_scope        | None                                 |
+    | ipv6_address_scope        | None                                 |
+    | is_default                | None                                 |
+    | mtu                       | 1450                                 |
+    | name                      | demo-net                             |
+    | port_security_enabled     | True                                 |
+    | project_id                | daaa7bab37794b47b336cb2ccae67a99     |
+    | provider:network_type     | None                                 |
+    | provider:physical_network | None                                 |
+    | provider:segmentation_id  | None                                 |
+    | qos_policy_id             | None                                 |
+    | revision_number           | 3                                    |
+    | router:external           | Internal                             |
+    | segments                  | None                                 |
+    | shared                    | False                                |
+    | status                    | ACTIVE                               |
+    | subnets                   |                                      |
+    | updated_at                | 2017-05-03T18:38:23Z                 |
+    +---------------------------+--------------------------------------+
+
+Y creamos la subred asociada:
+
+    openstack subnet create --network demo-net --subnet-range 192.168.100.0/24 --dns-nameserver 192.168.102.2 demo-subnet
+    +-------------------+--------------------------------------+
+    | Field             | Value                                |
+    +-------------------+--------------------------------------+
+    | allocation_pools  | 192.168.100.2-192.168.100.254        |
+    | cidr              | 192.168.100.0/24                     |
+    | created_at        | 2017-05-03T18:42:43Z                 |
+    | description       |                                      |
+    | dns_nameservers   | 192.168.102.2                        |
+    | enable_dhcp       | True                                 |
+    | gateway_ip        | 192.168.100.1                        |
+    | host_routes       |                                      |
+    | id                | 5dc0546b-72a0-458a-9822-417bf66c4f53 |
+    | ip_version        | 4                                    |
+    | ipv6_address_mode | None                                 |
+    | ipv6_ra_mode      | None                                 |
+    | name              | demo-subnet                          |
+    | network_id        | 5afe9978-0451-4e3d-b53e-8adf1a392347 |
+    | project_id        | daaa7bab37794b47b336cb2ccae67a99     |
+    | revision_number   | 2                                    |
+    | segment_id        | None                                 |
+    | service_types     |                                      |
+    | subnetpool_id     | None                                 |
+    | updated_at        | 2017-05-03T18:42:43Z                 |
+    +-------------------+--------------------------------------+
+
+A continuación creamos un router conectado a la red externa y la interna:
+
+     openstack router create router1
+    +-------------------------+--------------------------------------+
+    | Field                   | Value                                |
+    +-------------------------+--------------------------------------+
+    | admin_state_up          | UP                                   |
+    | availability_zone_hints |                                      |
+    | availability_zones      |                                      |
+    | created_at              | 2017-05-03T18:43:34Z                 |
+    | description             |                                      |
+    | distributed             | False                                |
+    | external_gateway_info   | None                                 |
+    | flavor_id               | None                                 |
+    | ha                      | False                                |
+    | id                      | 0d46f7c3-1b07-4cec-8efb-7b2534e555aa |
+    | name                    | router1                              |
+    | project_id              | daaa7bab37794b47b336cb2ccae67a99     |
+    | revision_number         | None                                 |
+    | routes                  |                                      |
+    | status                  | ACTIVE                               |
+    | updated_at              | 2017-05-03T18:43:34Z                 |
+    +-------------------------+--------------------------------------+
+
+    openstack router set router1 --external-gateway ext-net
+
+    openstack router add subnet router1 demo-subnet
+
+
