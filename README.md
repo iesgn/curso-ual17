@@ -40,7 +40,7 @@
 
 ### Almacenamiento en OpenStack: almacenamiento de bloques y de objetos. Opciones y alternativas. Ceph, GlusterFS y Swift. Arquitectura
 
-### Herramientas de gestión de OpenStack (
+### Herramientas de gestión de OpenStack
 
 ### IPv6 en OpenStack 
 
