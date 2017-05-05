@@ -61,7 +61,7 @@ Veamos también el concepto de volumen persistenete. Kubernetes proporciona una 
 
 * PersistentVolume (PV): Es un recurso del clúster que ha sido aprivisionado por un administrador. Con el
 especificamos el volumen persistente. Su ciclo de vida no depende de los Pods que hacen uso de él.
-PersistentVolumeClaim: Es una petición de almacenamiento por parte del usuario, reclamamos espacio en el
+* PersistentVolumeClaim: Es una petición de almacenamiento por parte del usuario, reclamamos espacio en el
 volumen. Es similar a un Pod. Consume recursos del PV. Se pueden especificar tamaño y modo de
 acceso.
 
