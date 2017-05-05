@@ -1,29 +1,46 @@
-# Curso de instalación de Openstack en la Universidad de Almeria - Mayo 2017
+# Curso de actualización de Openstack en la Universidad de Almeria - Mayo 2017
 
-## Conceptos previos
 
-* Componentes principales de OpenStack
-* Otros componentes de OpenStack
-* Arquitectura lógica
-* [Introducción a la instalación de openstack](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
+### OpenStack Ocata: Novedades.
+
 
 * [Keystone Domains](https://wiki.openstack.org/wiki/Domains)
 * [Hierarchical Projects](https://specs.openstack.org/openstack/keystone-specs/specs/juno/hierarchical_multitenancy.html)
 * [Cells](https://docs.openstack.org/developer/nova/cells.html#manifesto)
 
- ## Puesta en marcha entorno de prueba
+
+### Posibles métodos de instalación, con especial énfasis en la automatización
+
+* Opciones de instalación de OpenStack
+
+### Arquitectura de OpenStack. Aspectos a tener en cuenta y novedades en la arquitectura básica
+
+* Componentes principales de OpenStack
+* Otros componentes de OpenStack
+* Arquitectura lógica
+
+
+### Despliegue automático de un escenario virtual sobre OpenStack con terraform
+
 
  * [Repositorio: terraform-openstack](https://github.com/iesgn/terraform-openstack/)
 
- ## Playbooks ansible para la instalación de Openstack Ocata
 
+### Instalación automática de OpenStack Ocata con ansible
+
+* [Introducción a la instalación de openstack](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
  * [Repositorio: openstack-ubuntu-ansible](https://github.com/iesgn/openstack-ubuntu-ansible/tree/ocata)
  * [Configuración post-instalación](post.md)
 
- ## Otros documentos
+### Instalación automática de nuevos nodos de computación con ansible
 
- * Ipv6
- * [Transferencias de volúmenes en OpenStack](http://www.josedomingo.org/pledin/2016/04/transferencias-de-volumenes-en-openstack/)
- * ...
+### Contenedores en OpenStack (backend en nova, configuración sobre máquinas virtuales, ironic y magnum)
 
- ## Contenedores
+### Instalación automática de OpenStack Ocata en servidores físicos.
+
+### Almacenamiento en OpenStack: almacenamiento de bloques y de objetos. Opciones y alternativas. Ceph, GlusterFS y Swift. Arquitectura
+
+### Herramientas de gestión de OpenStack (
+
+### IPv6 en OpenStack 
+
