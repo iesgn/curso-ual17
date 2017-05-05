@@ -88,6 +88,23 @@ Además el deployment crea un recurso ReplicaSet, que asegura que un número esp
 	NAME                  DESIRED   CURRENT   READY     AGE
 	my-nginx-2122188915   1         1         1         50s
 
+Podemos replicar los PODS de un deployment de una forma muy sencilla:
+
+	$ kubectl scale deploy my-nginx --replicas=4
+	deployment "my-nginx" scaled
+
+	$ kubectl get pods
+	NAME                        READY     STATUS    RESTARTS   AGE
+	my-nginx-2122188915-6c4vj   1/1       Running   0          15s
+	my-nginx-2122188915-hs8mt   1/1       Running   0          6m
+	my-nginx-2122188915-w0f1b   1/1       Running   0          15s
+	my-nginx-2122188915-zk9k5   1/1       Running   0          15s
+
+Teniendo en cuenta que los pods siempre estarán distribuidos de la forma más eficiente entre los nodos del cluster.
+
+## Services
+
+
 
 
 
