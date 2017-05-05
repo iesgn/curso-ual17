@@ -15,7 +15,7 @@
 
 ### Arquitectura de OpenStack. Aspectos a tener en cuenta y novedades en la arquitectura básica
 
-* [Componentes principales de OpenStack](https://iesgn.github.io/curso-ual17/componenetes_core.html#/)
+* [Componentes principales de OpenStack](https://iesgn.github.io/curso-ual17/componentes_core.html#/)
 * [Otros componentes de OpenStack](https://iesgn.github.io/curso-ual17/otros_componentes.html#/)
 * [Arquitectura lógica](https://iesgn.github.io/curso-ual17/arquitectura_logica.html#/)
 
@@ -30,7 +30,7 @@
 
 * [Introducción a la instalación de openstack](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
  * [Repositorio: openstack-ubuntu-ansible](https://github.com/iesgn/openstack-ubuntu-ansible/tree/ocata)
- * [Configuración post-instalación](post.md)
+ * [Configuración post-instalación](doc/post_instalacion.md)
 
 ### Instalación automática de nuevos nodos de computación con ansible
 
