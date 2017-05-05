@@ -1,4 +1,4 @@
-# Kubernetes
+# Introducción a Kubernetes
 
 Es un proyecto open source de Google para la gestión de aplicaciones en contenedores, en especial los contenedores Docker, permitiendo programar el despliegue, escalado, monitorización de los contenedores, etc.
 
@@ -36,3 +36,32 @@ información sobre CPU, memoria, sistema de ficheros y estadísticas de uso de l
 Clúster: Conjunto de máquinas físicas o virtuales y otros recursos (almacenamiento, red, etc.) utilizados por Kubernetes dónde pods son desplegados, gestionados y replicados. 
 * Service: es una abstracción (un nombre único) que define un conjunto de pods y la lógica para acceder a los mismos. Los servicios ofrecen la capacidad para buscar y distribuir el tráfico proporcionando un nombre y dirección o puerto persistente para los pods con un conjunto común de labels.
 Labels: son pares clave/valor usados para agrupar, organizar y seleccionar un grupo de objetos tales como Pods. Son fundamentales para que los services y los replications controllers obtengan la lista de los servidores a donde el tráfico debe pasar.
+
+## Redes en kubernetes
+
+En Kubernetes es primordial que los nodos tengan acceso a internet para poder ofrecer sus
+servicios. También es importante que los nodos se comuniquen entre ellos y compartan recursos y
+datos. En el caso de un clúster Kubernetes existen dos elementos para resolver esto: 
+
+* Los contenedores dentro de un nodo se comunican por la interfaz de red creada por docker:
+
+	* Docker0: Para el acceso de los contenedores a la red se crea una subred virtual con un segmento de red privado, administrado por una interfaz virtual que sirve de puente. Esta interfaz se crea en el momento de instalar Docker y se llama Docker0. El demonio Docker añade la interfaz a dicha subred. Cada contenedor tiene su propia IPv4 en la subred y hacen NAT.
+
+* Para comunicar contenedores entre diferentes nodos podemos utilziar varias implemntaciones, la más usada es Flannel:
+
+	* Flannel: Desarrollado por CoreOS y pensado para Kubernetes, permite que las distintas subredes entre los nodos se comuniquen entre sí. Funciona como una virtual extended LAN (VXLAN), que crea un número identificador de red. Cada nodo utiliza una interfaz virtual llamada flannel que administra el segmento de red de cada subred.
+
+## Volúmenes en kubernetes
+
+Los archivos en disco en un contenedor son efímeros, lo que representa algunos problemas para las aplicaciones cuando corren en contenedores. En primer lugar, cuando un contenedor se rompe, Kubelet lo reiniciará pero los archivos se perderán y el contenedor se iniciará limpio. En segundo lugar cuando dos contenedores corren en un Pod, a veces es necesario que compartan archivos entre ellos. Los volúmenes de Kubernetes resuelven ambos problemas.
+
+Kubernetes nos ofrece múltiples tipos de volúmenes. En esencia un volumen sólo es un directorio con datos, que son accesibles por los contenedores de un Pod.
+
+Veamos también el concepto de volumen persistenete. Kubernetes proporciona una API para que usuarios y administradores puedan aprovisionar el almacenamiento dependiendo del consumo.
+
+* PersistentVolume (PV): Es un recurso del clúster que ha sido aprivisionado por un administrador. Con el
+especificamos el volumen persistente. Su ciclo de vida no depende de los Pods que hacen uso de él.
+PersistentVolumeClaim: Es una petición de almacenamiento por parte del usuario, reclamamos espacio en el
+volumen. Es similar a un Pod. Consume recursos del PV. Se pueden especificar tamaño y modo de
+acceso.
+
