@@ -1,0 +1,115 @@
+---
+layout: presentacion
+title: Otros Componentes de OpenStack
+tema: white
+---
+<section>
+  <h2>Otros Componentes de OpenStack</h2>
+  <p>
+    <a href="http://albertomolina.wordpress.com">Alberto Molina Coballes</a> y
+    <a href="http://www.josedomingo.org">José Domingo Muñoz Rodríguez</a>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/ejemplo/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+<section>
+  <p><img src="img/otros_componentes/openstack-components.jpg" alt="OpenStack Components" /></p>
+  <p><small><a href="http://www.cloudscaling.com/blog/openstack/vanilla-openstack-doesnt-exist-and-never-will/">Randy Bias - 'Vanilla OpenStack' Doesn’t Exist and Never Will</a></small></p>
+</section>
+<section>
+  <h2>Otros componentes de OpenStack</h2>
+  <ul>
+    <li>Horizon</li>
+    <li>Heat</li>
+    <li>Ceilometer</li>
+    <li>Trove</li>
+    <li>Sahara</li>
+    <li>Magnum</li>
+    <li>Designate</li>
+    <li>...</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Horizon (Dashboard)</h2>
+  <ul>
+    <li>No es "core" pero sí muy habitual</li>
+    <li>Hay algunas alternativas no oficiales</li>
+    <li>Desarrollada en Django</li>
+    <li>AngularJS desde Kilo</li>
+    <li>Extensible y adaptable</li>
+    <li>No incluye toda la funcionalidad de cada componente</li>
+    <li>Habitualmente funciona con Apache+memcached</li>
+  </ul>
+</section>
+<section>
+  <h2>Heat</h2>
+  <ul>
+    <li>Encargado de orquestar la infraestructura</li>
+    <li>Despliega y mantiene escenarios definidos medianta plantillas</li>
+    <li>Dos formatos: HOT y Cloudformation (AWS)</li>
+    <li>Importantes diferencias entre versiones de OpenStack</li>
+    <li>Suele integrarse con Ceilometer</li>
+  </ul>
+</section>
+<section>
+  <h2>Ceilometer</h2>
+  <ul>
+    <li>Encargado de realizar métricas</li>
+    <li>Utiliza MongoDB en lugar de un SGBDR</li>
+    <li>Se integra con heat para proporcionar autoescalado</li>
+    <li>Puede consumir gran cantidad de recursos</li>
+  </ul>
+</section>
+<section>
+  <h2>Trove</h2>
+  <ul>
+    <li>DBaaS. Similar a Amazon RDS o ElastiCache</li>
+    <li>Bases de datos soportadas:<a href="http://www.tesora.com/openstack-trove-certified-databases/">[1]</a>
+      <ul>
+	<li>MySQL, Percona y MariaDB</li>
+	<li>Couchbase</li>
+	<li>Cassandra</li>
+	<li>Redis</li>
+	<li>PostgreSQL</li>
+	<li>MongoDB</li>
+	<li>Oracle</li>
+	<li>...</li>
+    </ul></li>
+    <li>Desarrollado principalmente por <a href="http://www.tesora.com/">Tesora</a></li>
+  </ul>
+</section>
+<section>
+  <h2>Sahara</h2>
+  <ul>
+    <li>Conocido anteriormente como Savanna</li>
+    <li>Big Data: Hadoop o Spark</li>
+    <li>Creación automatizada de clusters para Big Data</li>
+    <li>Desarrollado inicialmente por <a href="https://www.mirantis.com/products/data-processing-sahara/">Mirantis</a></li>
+</section>
+<section>
+  <h2>Magnum</h2>
+  <ul>
+    <li>Contenedores integrados en OpenStack</li>
+    <li>Muy reciente desarrollo</li>
+    <li>Se integra con Heat</li>
+    <li>Contenedores: Docker</li>
+    <li>Gestión de orquestadores: Kubernetes y Swarm</li>
+</section>
+<section>
+  <h2>Designate</h2>
+  <ul>
+    <li>DNS como servicio</li>
+    <li>Proporciona DNS a las instancias</li>
+    <li>En desarrollo desde hace tiempo, pero oficial desde Liberty</li>
+  </ul>
+</section>
+<section>
+  <ul>
+    <li>Muchos más componentes ...</li>
+    <li>Listado completo: <a href="http://governance.openstack.org/reference/projects/">OpenStack Project Teams</a></li>
+  </ul>
+</section>

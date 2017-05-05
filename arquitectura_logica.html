@@ -1,0 +1,304 @@
+---
+layout: presentacion
+title: Arquitectura Lógica
+tema: white
+---
+<section>
+  <h2>Arquitectura Lógica</h2>
+  <p>
+    <a href="http://albertomolina.wordpress.com">Alberto Molina Coballes</a> y
+    <a href="http://www.josedomingo.org">José Domingo Muñoz Rodríguez</a>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/ejemplo/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+
+<section>
+  <h2>Aviso</h2>
+  <ul>
+    <li>A continuación se presenta un ejemplo muy simplificado de implantación
+      de OpenStack</li>
+    <li>El objetivo es tener un OpenStack para pruebas disponible</li>
+    <li>Una implantación real conlleva un estudio mucho más exhaustivo del
+    problema a solucionar y de todos los elementos implicados, tanto de hardware
+    como de software</li>
+  </ul>
+</section>
+<!-- <section> -->
+<!--   <h2>Caso tipo</h2> -->
+<!--   <ul> -->
+<!--     <li>Nube privada</li> -->
+<!--     <li>Varios proyectos y usuarios independientes</li> -->
+<!--     <li>Capacidad inicial máxima estimada: -->
+<!--       <ul> -->
+<!-- 	<li>200 máquinas con 4 GiB RAM, 2 vCPU y 20 GiB HD</li> -->
+<!-- 	<li>Consumo CPU intermedio</li> -->
+<!-- 	<li>Hasta 10 TiB de almacenamiento adicional (discos)</li> -->
+<!-- 	<li>Hasta 10 TiB de almacenamiento de objetos</li> -->
+<!--       </ul> -->
+<!--     </li> -->
+<!--     <li>Virtualización de redes</li> -->
+<!--     <li>¿Alta disponibilidad?</li> -->
+<!--     <li>Sistema escalable</li> -->
+<!--     </ul> -->
+<!-- </section> -->
+<section>
+      <a href="img/ejemplo/esquema-iaas.png"><img src="img/ejemplo/esquema-iaas.png"
+					  alt="esquema IaaS"/></a>
+</section>
+<section>
+  <h2>Componentes de OpenStack necesarios</h2>
+  <ul>
+    <li>Keystone</li>
+    <li>Glance</li>
+    <li>Nova</li>
+    <li>Cinder</li>
+    <li>Horizon</li>
+    <li>Neutron</li>
+  </ul>
+</section>
+<section>
+  <h2>Componentes de OpenStack opcionales</h2>
+  <ul>
+    <li>Swift</li>
+    <li>Ceilometer y Heat</li>
+    <li>Trove</li>
+    <li>Sahara</li>
+    <li>Magnum</li>
+    <li>Designate</li>
+    <li>...</li>
+    <li>En general no repercuten en la arquitectura, salvo swift</li>
+  </ul>
+</section>
+<section>
+  <h2>Otros componentes necesarios</h2>
+  <ul>
+    <li>Servidor AMQP: RabbitMQ o QPID</li>
+    <li>BBDD:
+      <ul>
+	<li>MySQL o "derivadas":
+	  <ul>
+	    <li>MySQL o MySQL cluster (HA)</li>
+	    <li>Galera</li>
+	    <li>MariaDB</li>
+	</ul></li>
+	<li>PostgreSQL</li>
+	<li>SQlite (Sólo pruebas)</li>
+	<li>Cualquira soportada por <a href="http://docs.sqlalchemy.org/en/latest/core/engines.html">SQLAlchemy</a></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+<section>
+  <h2>Tecnologías subyacentes</h2>
+  <ul>
+    <li>Hipervisor: KVM</li>
+    <li>Almacenamiento: LVM + iSCSI</li>
+    <li>Switch virtual: Open vSwitch</li>
+  </ul>
+</section>
+<section>
+  <h2>Tipos de nodos</h2>
+  <p>Los roles típicos dentro de OpenStack son:</p>
+  <ul>
+    <li><strong>Nodo controlador:</strong> Equipo que gestiona el
+      cloud, ofrece las APIs a los clientes, contiene las bases
+      de datos, el servidor AMQP, los planificadores y los componentes
+      "centrales" de cada componente de OpenStack.</li>
+    <li><strong>Nodo de red:</strong> Con neutron es recomendable
+      utilizar un equipo específico para todo el tráfico de red</li>
+    <li><strong>Nodo de computación</strong> Equipo en el que se
+      ejecutan las instancias</li>
+    <li><strong>Nodo de almacenamiento</strong> Múltiples
+      opciones. Almacenamiento de volúmenes y/o objetos.</li>
+  </ul>
+</section>
+<section>
+  <h2>Características físicas de los nodos</h2>
+  <ul>
+    <li><strong>Nodo controlador:</strong>Servidor convencional sin grandes
+      requisitos. Podría reutilizarse un equipo que ya se tuviera.</li>
+    <li><strong>Nodo de red:</strong>Servidor de características
+      similares al nodo controlador. Mínimo con 2 interfaces de
+      red Gigabit Ethernet.</li>
+    <li><strong>Nodo de almacenamiento: </strong>Dependiendo de la
+      opción de almacenamiento así serán los discos  adicionales</li>
+    <li><strong>Nodo de computación:</strong>Equipo de altas
+      prestaciones con procesadores potentes y bastante RAM. Los discos a
+      utilizar depende de si las instancias utilizan o no disco
+      local.</li>
+  </ul>
+</section>
+<section>
+  <section>
+    <h2>Esquemas</h2>
+  </section>
+  <section>
+    <h2>Con alta disponibilidad</h2>
+    <img src="img/ejemplo/osog_0101.png" />
+    <p><small>Fuente: <a href="http://docs.openstack.org/openstack-ops/content/example_architecture.html#example_architecture-neutron">OpenStack Operations Guide</a></small></p>
+  </section>
+  <section>
+    <h2>Sin alta disponibilidad</h2>
+    <img src="img/ejemplo/osog_0102.png" />
+  </section>
+  <section>
+    <h2>Sobre la Alta disponibilidad</h2>
+    <ul>
+      <li>Un despliegue de OpenStack sin SPOF es bastante complejo</li>
+      <li>Se puede conseguir algunos servicios en HA de forma sencilla:
+	<ul>
+	  <li>MySQL con Galera</li>
+	  <li>AMQP</li>
+	  <li>APIs balanceadas con HA-proxy</li>
+      </ul></li>
+      <li>Swift o Ceph</li>
+      <li>Los nodos de computación no se montan en HA</li>  
+    </ul>
+    <small><a href="http://docs.openstack.org/high-availability-guide/content/">OpenStack High Availability Guide</a></small>
+  </section>
+</section>
+<section>
+  <h2>Arquitectura lógica</h2>
+  <img src="img/ejemplo/openstack-arch-kilo-logical-v1.png" />
+  <p><small><a href="http://docs.openstack.org/admin-guide-cloud/content/logical-architecture.html">OpenStack Operations Guide</a></small></p>
+</section>
+<section>
+  <h2>Allocation ratios</h2>
+  <ul>
+    <li>Designar más vCPU, RAM o disco del disponible</li>
+    <li>Útil sobre todo para entornos de pruebas</li>
+    <li>Utilizar con precaución en producción</li>
+    <li>
+      <ul>
+	<li>CPU allocation ratio: 16 por defecto</li>
+	<li>RAM allocation ratio: 1.5 por defecto</li>
+	<li>Disk allocation ratio: 1 por defecto</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+<!-- <section> -->
+<!--   <section> -->
+<!--     <h2>Características físicas</h2> -->
+<!--   </section> -->
+<!--   <section> -->
+<!--     <h2>Nodos de red y controlador</h2> -->
+<!--     <ul> -->
+<!--       <li>El o los nodos controlador y nodos de red son equipos convencionales sin -->
+<!-- 	requisitos especiales en capacidad de cómputo, memoria o almacenamiento en -->
+<!-- 	disco para una nube pequeña como la de este ejemplo.</li> -->
+<!--       <li>La principal mejora que se podría hacer en estos equipos es la inclusión -->
+<!-- 	de interfaces de red 10 Gigabit Ethernet</li> -->
+<!--     </ul> -->
+<!--   </section> -->
+<!--   <section> -->
+<!--     <h2>Nodo de computación</h2> -->
+<!--     <h3>uso poco intensivo</h3> -->
+<!--     <ul> -->
+<!--       <li>CPU allocation ratio: 16</li> -->
+<!--       <li>RAM allocation ratio: 1.5</li> -->
+<!--       <li>Escalamos al pico máximo: -->
+<!-- 	<ul> -->
+<!-- 	  <li>533 GiB RAM (800 / 1.5)</li> -->
+<!-- 	  <li>25 cores (200 X 2 / 16)</li> -->
+<!-- 	  <li>4 TiB HD (200 x 20)</li> -->
+<!-- 	</ul> -->
+<!--       <li>Resultado: 4 nodos de computación -->
+<!-- 	<ul> -->
+<!-- 	  <li>128 GiB de RAM</li> -->
+<!-- 	  <li>6 cores</li> -->
+<!-- 	  <li>1 TiB de HD</li> -->
+<!-- 	</ul> -->
+<!--       </li> -->
+<!--     </ul> -->
+<!--   </section> -->
+<!--   <section> -->
+<!--     <h2>Nodo de computación</h2> -->
+<!--     <h3>uso intermedio</h3> -->
+<!--     <ul> -->
+<!--       <li>CPU allocation ratio: 8</li> -->
+<!--       <li>RAM allocation ratio: 1.2</li> -->
+<!--       <li>Escalamos al pico máximo: -->
+<!-- 	<ul> -->
+<!-- 	  <li>666 GiB RAM (800 / 1.2)</li> -->
+<!-- 	  <li>50 cores (200 X 2 / 8)</li> -->
+<!-- 	  <li>4 TiB HD (200 x 20)</li> -->
+<!-- 	</ul> -->
+<!--       <li>Resultado: 5 nodos de computación -->
+<!-- 	<ul> -->
+<!-- 	  <li>128 GiB de RAM</li> -->
+<!-- 	  <li>10 cores</li> -->
+<!-- 	  <li>1 TiB de HD</li> -->
+<!-- 	</ul> -->
+<!--       </li> -->
+<!--     </ul> -->
+<!--   </section> -->
+<!--   <section> -->
+<!--     <h2>Nodo de computación</h2> -->
+<!--     <h3>uso intensivo</h3> -->
+<!--     <ul> -->
+<!--       <li>CPU allocation ratio: 1</li> -->
+<!--       <li>RAM allocation ratio: 1</li> -->
+<!--       <li>Escalamos al pico máximo: -->
+<!-- 	<ul> -->
+<!-- 	  <li>800 GiB RAM</li> -->
+<!-- 	  <li>400 cores</li> -->
+<!-- 	  <li>4 TiB HD</li> -->
+<!-- 	</ul> -->
+<!--       <li>Resultado: 12 nodos de computación -->
+<!-- 	<ul> -->
+<!-- 	  <li>64 GiB de RAM</li> -->
+<!-- 	  <li>32 cores</li> -->
+<!-- 	  <li>500 GiB de HD</li> -->
+<!-- 	</ul> -->
+<!--       </li> -->
+<!--     </ul> -->
+<!--   </section> -->
+<!--   <section> -->
+<!--     <h2>Nodo de almacenamiento</h2> -->
+<!--     <h3>LVM + iSCSI</h3> -->
+<!--     <ul> -->
+<!--       <li>Supongamos que proporcionamos redundancia con RAID5 más un disco de reserva</li> -->
+<!--       <li>7 HD de 2 TiB</li> -->
+<!--       <li>Discos aparte para el sistema y cinder-volume</li> -->
+<!--       <li>Varias interfaces de red para bonding o 10 Gigabit Ethernet</li> -->
+<!--     </ul> -->
+<!--   </section> -->
+<!--   <section> -->
+<!--     <h2>Nodo de almacenamiento</h2> -->
+<!--     <h3>Ceph</h3> -->
+<!--     <ul> -->
+<!--       <li>1 GiB de RAM por 1 TiB de almacenamiento</li> -->
+<!--       <li>Requisitos mínimos. 3 nodos con: -->
+<!-- 	<ul> -->
+<!-- 	  <li>1 CPU multicore</li> -->
+<!-- 	  <li>24 GiB RAM</li> -->
+<!-- 	  <li>No utilizar RAID</li> -->
+<!-- 	  <li>10 HD de 2 TiB</li> -->
+<!-- 	  <li>Discos aparte para sistema y journal</li> -->
+<!-- 	</ul> -->
+<!--       </li> -->
+<!--       <li>Ejemplo: <a href="http://www.supermicro.com/solutions/datasheet_Ceph.pdf">Supermicro. Ceph Object-Based Storage Cluster</a></li> -->
+<!--     </ul> -->
+<!--     <p><small><a href="http://ceph.com/docs/master/start/hardware-recommendations/">Ceph. Hardware recommendations</a></small></p> -->
+<!--   </section> -->
+<!-- </section> -->
+<section>
+  <h2>OpenStack User Survey</h2>
+  <ul>
+    <li>Referencia para saber qué hacen otros</li>
+    <li><a href="https://www.openstack.org/assets/survey/Public-User-Survey-Report.pdf">Octubre 2015</a></li>
+  </ul>
+</section>
+<section>
+  <h2>Referencias</h2>
+  <ul>
+    <li><a href="http://docs.openstack.org/openstack-ops/content/architecture.html">OpenStack Operations Guide. Architecture</a></li>
+    <li><a href="http://es.slideshare.net/LibreCon/alfredo-moralejo-red-hat-def-con-l-ogos">Construyendo una nube con OpenStack - Alfredo Moralejo</li>	
+    <li><a href="http://architects.dzone.com/articles/exploring-swift-software">Exploring Swift, the Software Behind OpenStack Object Storage Service</a></li>
+    <li><a href="http://www.sebastien-han.fr/blog/2014/02/02/fosdem-2014-ceph-the-de-facto-storage-backend-for-openstack/">Ceph the De Facto Storage Backend for OpenStack</a></li>
+  </ul>

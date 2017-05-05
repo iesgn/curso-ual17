@@ -1,0 +1,110 @@
+---
+layout: presentacion
+title: Componentes Core de OpenStack
+tema: white
+---
+<section>
+  <h2>Componentes principales de OpenStack</h2>
+  <p>
+    <a href="http://albertomolina.wordpress.com">Alberto Molina Coballes</a> y
+    <a href="http://www.josedomingo.org">José Domingo Muñoz Rodríguez</a>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/ejemplo/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+
+<section>
+  <h2>Componentes principales de OpenStack ("core")</h2>
+  <ul>
+    <li>Keystone</li>
+    <li>Glance</li>
+    <li>Nova</li>
+    <li>Cinder</li>
+    <li>Swift</li>
+    <li>Neutron</li>
+  </ul>
+</section>
+<section>
+  <h2>Características generales</h2>
+  <ul>
+    <li>Escritos en Python</li>
+    <li>Utilización de AMQP</li>
+    <li>Interacción a través de APIs RESTful</li>
+    <li>Base de datos independiente</li>
+    <li>Autenticación y autorización mediante keystone</li>
+    <li>CLI independiente</li>
+  </ul>
+</section>
+<section>
+  <h2>Keystone (Identity Service)</h2>
+  <ul>
+    <li>Proyectos, usuarios, roles, etc.</li>
+    <li>Implementa RBAC (<em>Role Based Access Control</em>)</li>
+    <li>Autenticación por tokens</li>
+    <li>Gestión de los Endpoints</li>
+    <li>Autenticación básica: SQL o LDAP</li>
+    <li>Otras opciones de autenticación: SAML, OpenID, Mecanismo externo (vía WSGI)</li>
+    <li>No hay roles por defecto. Habitualmente "admin" y "_member_"</li>
+    <li>Autorización mediante políticas (policy.json)
+  </ul>
+</section>
+<section>
+  <h2>Glance (Image Service)</h2>
+  <ul>
+    <li>Gestión de imágenes e instantáneas</li>
+    <li>Formato qcow2 &#8592; KVM</li>
+    <li>Otros formatos: raw, vhd, vmdk, vdi, ... <a href="http://docs.openstack.org/developer/glance/formats.html">[1]</a></li>
+    <li>Se pueden almacenar como objetos en Swift las imágenes e instantáneas</li>
+    <li>En este curso utilizaremos /var/lib/glance/</li>
+  </ul>
+</section>
+<section>
+  <h2>Nova (Compute Service)</h2>
+  <ul>
+    <li>Gestión de las instancias</li>
+    <li>Varios subcomponentes: nova-api, nova-conductor, nova-console,
+      nova-scheduler, nova-compute</li>
+    <li>La configuración de nova-compute depende del hipervisor</li>
+    <li>nova-api puede utilizar la API de Amazon EC2</li>
+    <li>Importante: Definir CPU y RAM allocation-ratio</li>
+    <li>Importante: Con KVM es conveniente configurar KSM</li>
+    <li>nova-console: VNC o SPICE</li>
+  </ul>
+</section>
+<section>
+  <h2>Cinder (Block Storage Service)</h2>
+  <ul>
+    <li>Gestión de los volúmenes</li>
+    <li>Múltiples "backends"</li>
+    <li>Varios componentes: cinder-api, cinder-scheduler y cinder-volume</li>
+  </ul>
+</section>
+<section>
+  <h2>Swift</h2>
+  <ul>
+    <li>Almacenamiento de objetos</li>
+    <li>Almacenamiento distribuido y en alta disponibilidad</li>
+    <li>Independiente del resto de componentes</li>
+    <li>Utilización muy sencilla</li>
+    <li>Implementación y administración más compleja</li>
+  </ul>
+</section>
+<section>
+  <h2>Neutron (Networking Service)</h2>
+  <ul>
+    <li>Encargado de las redes, subredes, routers, etc.</li>
+    <li>Modular Layer 2 (ML2):
+      <ul>
+	<li>Varios tipos: local,flat,vlan,gre,vxlan</li>
+	<li>Varios mecanismos:  Arista, Brocade, Cisco, Nexus, Hyper-V, midonet,
+	  nuage, OVS, ...</li>
+      </ul>
+    </li>
+    <li>DHCP y routers definidos en el nodo de red (linux network namespaces)</li>
+    <li>Servicio de metadatos a cada subred en modo proxy</li>
+    <li>Puede proporcionar LBaaS, VPNaaS y FWaaS</li>
+  </ul>
+</section>
