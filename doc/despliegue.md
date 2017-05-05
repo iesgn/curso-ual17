@@ -46,4 +46,48 @@ Por lo tanto para borrar el pod tenemos que borrar el deployment:
 	$ kubectl get pods
 	No resources found.
 
-## 
+## Creación de deployments
+
+Es más usual crear el deployment que será el responsable de crear los pods indicados. Los deployments es un nuevo mecanismo para controlar la ejecución de pods, anteriormente se usaba un Replication Controller. 
+
+Para definir un deployment creamos un fichero yaml, por ejemplo nginx-deploy.yaml:
+
+	apiVersion: apps/v1beta1
+	kind: Deployment
+	metadata:
+	    name: my-nginx
+	spec:
+	    replicas: 1
+	    template:
+	      metadata:
+	        labels:
+	          app: nginx
+	      spec:
+	        containers:
+	        - name: nginx
+	          image: nginx
+	          ports:
+	          - containerPort: 80
+
+Y para crear el deployment ejecutamos:
+
+	$ kubectl create -f nginx-deploy.yaml
+	deployment "my-nginx" created
+
+	$ kubectl get deploy
+	NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+	my-nginx   1         1         1            1           16s
+
+	$ kubectl get pods
+	NAME                        READY     STATUS    RESTARTS   AGE
+	my-nginx-2122188915-hs8mt   1/1       Running   0          36s
+
+Además el deployment crea un recurso ReplicaSet, que asegura que un número especificado de "réplicas" de pod estén en ejecución en un momento dado. Sin embargo, un deployment es un concepto de nivel superior que administra ReplicaSets y PODS. Por lo tanto, es recomendable usar Deployments en lugar de utilizar directamente ReplicaSets.
+
+	$ kubectl get rs
+	NAME                  DESIRED   CURRENT   READY     AGE
+	my-nginx-2122188915   1         1         1         50s
+
+
+
+
