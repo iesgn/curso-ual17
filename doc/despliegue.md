@@ -104,7 +104,7 @@ Teniendo en cuenta que los pods siempre estarán distribuidos de la forma más e
 
 ## Services
 
-Como hemos visto anteriormente los pods son recursos volatiles que puede eliminarse o borrarse, el deployment y el ReplicaSet son los responsables de manejar el ciclo de vida del pod asegurando siempre que se están ejecutando los deseados. En esta circunstancia la ip asignada a un pod puede cambiar, por lo tanto tenemos porblemas si queremos comunicar un pod con otro o si queremos acceder desde el exterior a un pod.
+Como hemos visto anteriormente los pods son recursos volátiles que puede eliminarse o borrarse, el deployment y el ReplicaSet son los responsables de manejar el ciclo de vida del pod asegurando siempre que se están ejecutando los deseados. En esta circunstancia la ip asignada a un pod puede cambiar, por lo tanto tenemos problemas si queremos comunicar un pod con otro o si queremos acceder desde el exterior a un pod.
 
 Un service es una abstracción que define un grupo lógico de pods y una política de acceso a los mismos. Los pods apuntan a un servicio normalmente por la propiedad label.  El service lo que hace es que un pod siempre sea accesible de la misma manera, de forma que aunque el pod se destruya o se modifique siempre sea accesible por la abstracción.
 
@@ -135,7 +135,7 @@ Creamos el servicio:my-nginx-service
 
 Por lo tanto si accedemos a `http://ip-master:32662`, podriamos acceder al servidor ngnix instalado en el pod. Como tenemos 4 replicas el acceso estaría balanceado entre las replicas que se ejecutan en los distintos nodos del cluster.
 
-Para eliminar el escenario, eleminamos el deployment y el service:
+Para eliminar el escenario, eliminamos el deployment y el service:
 
 	$ kubectl delete deploy my-nginx
 	$ kubectl delete svc my-nginx-service
