@@ -29,4 +29,10 @@ información sobre CPU, memoria, sistema de ficheros y estadísticas de uso de l
 * Flannel: provee redes y conectividad para los nodos y contenedores en el clúster. 
 * Proxy (Kube-proxy): provee servicios de proxy de red. Cada nodo también ejecuta un proxy y un balanceador de carga. 
 
-##
+## Otros conceptos
+
+* PODs (dockers): son la unidad más pequeña desplegable que puede ser creada, programada y manejada por Kubernetes. Son un grupo de contenedores Dockers, de aplicaciones que comparten volúmenes y red. 
+* Replication   Controller: se asegura de que el número especificado de réplicas del pod estén ejecutándose y funcionando en todo momento. 
+Clúster: Conjunto de máquinas físicas o virtuales y otros recursos (almacenamiento, red, etc.) utilizados por Kubernetes dónde pods son desplegados, gestionados y replicados. 
+* Service: es una abstracción (un nombre único) que define un conjunto de pods y la lógica para acceder a los mismos. Los servicios ofrecen la capacidad para buscar y distribuir el tráfico proporcionando un nombre y dirección o puerto persistente para los pods con un conjunto común de labels.
+Labels: son pares clave/valor usados para agrupar, organizar y seleccionar un grupo de objetos tales como Pods. Son fundamentales para que los services y los replications controllers obtengan la lista de los servidores a donde el tráfico debe pasar.
