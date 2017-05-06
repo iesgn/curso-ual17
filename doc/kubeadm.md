@@ -93,5 +93,5 @@ Podemos acceder al dashboard utilizando la ip del master y el puerto que se ha e
 	kubernetes-dashboard   10.100.91.136   <nodes>       80:31949/TCP    1d
 
 
-![dashboard](img/daashboard.png)
+![dashboard](img/dashboard.png)
 
