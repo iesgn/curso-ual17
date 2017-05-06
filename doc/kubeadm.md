@@ -24,7 +24,7 @@ En el nodo que vamos a usar como master, ejecutamos la siguiente instrucción co
 
 	kubeadm init --pod-network-cidr 10.0.0.0/24
 
-Este comando incializa el cluster, hemos indicado le CIDR de la red por donde se comunican los nodos del cluster, cuando termina muestra un mensaje similar a este:
+Este comando inicializa el cluster, hemos indicado le CIDR de la red por donde se comunican los nodos del cluster, cuando termina muestra un mensaje similar a este:
 
 	Your Kubernetes master has initialized successfully!	
 
@@ -46,12 +46,12 @@ Este comando incializa el cluster, hemos indicado le CIDR de la red por donde se
 Nos indica tres cosas:
 
 1. Las instrucciones que tenemos que ejecutar en el master, con un usuario sin privilegios para usar el cliente `kubectl` y manejar el claster.
-2. La necesidad de instlar unpod para la gestión de la red.
+2. La necesidad de instalar un pod para la gestión de la red.
 3. Y la instrucción que tenemos que ejecutar en los nodos para añadirlos al cluster. Utilizaremos un token para ello.
 
 ## Instalación del pod para gestionar la red
 
-Antes de ello, en el master con un usuario sin privelegios ejecutamos las instrucciones anteriormente indicadas para usar el cliente `kubectl`:
+Antes de ello, en el master con un usuario sin privilegios ejecutamos las instrucciones anteriormente indicadas para usar el cliente `kubectl`:
 
 	sudo cp /etc/kubernetes/admin.conf $HOME/
 	sudo chown $(id -u):$(id -g) $HOME/admin.conf
@@ -64,7 +64,7 @@ A continuación vamos a instalar un add-ons para instalar una red de tipo flanne
 
 	kubectl create -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
-Otro add-on interesnate que podemos instalar es el dashboard:
+Otro add-on interesante que podemos instalar es el dashboard:
 
 	kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
 
@@ -95,3 +95,26 @@ Podemos acceder al dashboard utilizando la ip del master y el puerto que se ha e
 
 ![dashboard](img/dashboard.png)
 
+## Uniendo los nodos al cluster
+
+En cada nodo que va a formar parte del cluster tenemos que ejecutar, como superusuario, el comando que nos ofreció el comando `kubeadm` al iniciar el cluster en el master:
+
+	kubeadm join --token <token> <master-ip>:<master-port>
+	...
+	Node join complete:
+	* Certificate signing request sent to master and response
+	  received.
+	* Kubelet informed of new secure connection details.	
+
+	Run 'kubectl get nodes' on the master to see this machine join.
+
+
+Y finalmente desde el master podemos obtener los nodos que forman el cluster:
+
+	kubectl get nodes
+	NAME      STATUS    AGE       VERSION
+	nodo-1    Ready     1d        v1.6.2
+	nodo-2    Ready     1d        v1.6.2
+	nodo-3    Ready     1d        v1.6.2
+
+Puedes obtener más información en la página oficial de [kubeadm](https://kubernetes.io/docs/getting-started-guides/kubeadm/).
