@@ -39,7 +39,8 @@
 * 10 formas de trabajar con contenedores en OpenStack
 * [Introducción a kubernetes](doc/introduccion_kubernetes.md)
 * [Instalación de kubernetes en OpenStack con kubeadm](doc/kubeadm.md)
-* [Despliegue de una aplicación en kubernetes](doc/despliegue.md)
+* [Despliegue de un servicio en kubernetes](doc/despliegue_servicio.md)
+* [Despliegue de una aplicación web en kubernetes](doc/despliegue_aplicacion.md)
 * Despliegue de kubenetes en OpenStack usango Magnum
 
 ### Instalación automática de OpenStack Ocata en servidores físicos.

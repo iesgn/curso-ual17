@@ -1,4 +1,4 @@
-# Despliegue de una aplicación en kubernetes
+# Despliegue de un servicio en kubernetes
 
 ## Creación de PODS
 
