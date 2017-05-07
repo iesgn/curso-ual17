@@ -149,4 +149,4 @@ Por lo tanto podemos acceder a la aplicación utilizando la ip del master y el p
 
 ![letschat](img/letschat.png)
 
-Puedes acceder a todos los ficheros en el siguiente [directorio]()
+Puedes acceder a todos los ficheros en el siguiente [directorio](https://github.com/iesgn/curso-ual17/tree/master/letschat).
