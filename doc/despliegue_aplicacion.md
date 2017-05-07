@@ -3,7 +3,7 @@
 En este apartado vamos a instalar una aplicación web (CMS) en kubernetes, vamos a instalar un chat, llamado letscahat, que está escrito en node.js y utiliza una base de datos mongo. Por lo tanto vamos a crear dos PODS:
 
 * Uno con la aplicación letschat, este pods lo vamos poder escalar sin problemas.
-* Otro con la base de datos mongo, para que el almacenamiento de la base de datos sea presistente vamos a utilizar un volumen, en este caso para que sea más simple vamos a usar un directorio en el sistema de archivo. Por lo tanto este pod no se va a poder escalar. Podráimos usar otras soluciones de almacenamientos distribuido (glusterFS, NFS, Ceph,...) para compartir un volumen entre los nodos del cluster y de esta manera este pod puediera escalarse.
+* Otro con la base de datos mongo, para que el almacenamiento de la base de datos sea presistente vamos a utilizar un volumen, en este caso para que sea más simple vamos a usar un directorio en el sistema de archivo. Por lo tanto este pod no se va a poder escalar. Podríamos usar otras soluciones de almacenamientos distribuido (glusterFS, NFS, Ceph,...) para compartir un volumen entre los nodos del cluster y de esta manera este pod pudiera escalarse.
 
 ## Creación del despliegue del pod de mongoDB
 
@@ -79,7 +79,7 @@ Cramos el servicio y comprobamos que se ha creado:
 
 ## Creación del despliegue de la aplicación letschat
 
-DE la misma menra que anteriormente ahora creamos el fichero `letschat-deploy-yaml`:
+DE la misma manera que anteriormente ahora creamos el fichero `letschat-deploy-yaml`:
 
 apiVersion: apps/v1beta1
 kind: Deployment
@@ -120,7 +120,7 @@ Lo creamos y comprobamos su creación:
 
 ## ## Creación del servicio letschat
 
-Teniendop en cuenta que ahora vamos a poder acceder desde el exterior a la aplicación crearemos el `service` de la siguiente manera en el fichero letscaht-srv.yaml`:
+Teniendo en cuenta que ahora vamos a poder acceder desde el exterior a la aplicación crearemos el `service` de la siguiente manera en el fichero letscaht-srv.yaml`:
 
 	apiVersion: v1
 	kind: Service
