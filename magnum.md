@@ -18,8 +18,8 @@ magnum cluster-template-create --name kubernetes-cluster-template \
 --dns-nameserver 192.168.102.2 \
 --master-flavor m1.tiny \
 --flavor m1.tiny \
---coe kubernetes
---fixed-network demo-net
+--coe kubernetes \
+--fixed-network demo-net \
 --fixed-subnet demo-subnet
 
 +-----------------------+--------------------------------------+
