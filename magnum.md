@@ -13,7 +13,7 @@ source demo_openrc.sh
 
 magnum cluster-template-create --name kubernetes-cluster-template \
 --image fedora-atomic-latest \
---keypair atomic \
+--keypair clave \
 --external-network ext-net \
 --dns-nameserver 192.168.102.2 \
 --master-flavor m1.tiny \
