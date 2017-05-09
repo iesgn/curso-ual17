@@ -24,9 +24,7 @@
 
 ### Despliegue automático de un escenario virtual sobre OpenStack con terraform
 
-
  * [Repositorio: terraform-openstack](https://github.com/iesgn/terraform-openstack/)
-
 
 ### Instalación automática de OpenStack Ocata con ansible
 
