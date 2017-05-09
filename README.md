@@ -7,6 +7,7 @@
 * [Keystone Domains](https://wiki.openstack.org/wiki/Domains)
 * [Hierarchical Projects](https://specs.openstack.org/openstack/keystone-specs/specs/juno/hierarchical_multitenancy.html)
 * [Cells](https://docs.openstack.org/developer/nova/cells.html#manifesto)
+* [Placement API](https://docs.openstack.org/developer/nova/placement.html)
 
 
 ### Posibles métodos de instalación, con especial énfasis en la automatización
