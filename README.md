@@ -41,7 +41,7 @@
 * [Instalación de kubernetes en OpenStack con kubeadm](doc/kubeadm.md)
 * [Despliegue de un servicio en kubernetes](doc/despliegue_servicio.md)
 * [Despliegue de una aplicación web en kubernetes](doc/despliegue_aplicacion.md)
-* Despliegue de kubenetes en OpenStack usango Magnum
+* [Despliegue de kubenetes en OpenStack usango Magnum](doc/magnum.md)
 
 ### Instalación automática de OpenStack Ocata en servidores físicos.
 
