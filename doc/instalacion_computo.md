@@ -65,7 +65,12 @@ Desde el controlador:
 
 	openstack hypervisor list
 	+----+---------------------+-----------------+-------------+-------+
-	| ID | Hypervisor Hostname | Hypervisor Type | Host IP     | State |+----+------------------+------------+----------+---------+-------+----------------------------+-----------------+
+	| ID | Hypervisor Hostname | Hypervisor Type | Host IP     | State |
+	+----+---------------------+-----------------+-------------+-------+
+	|  1 | compute1            | QEMU            | 192.168.0.5 | up    |
+	|  2 | compute2            | QEMU            | 192.168.0.7 | up    |
+	+----+---------------------+-----------------+-------------+-------+
+
 
 
 	nova service-list
