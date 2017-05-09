@@ -28,7 +28,7 @@
 
 ### Instalación automática de OpenStack Ocata con ansible
 
-* [Introducción a la instalación de openstack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
+* [Introducción a la instalación de openstack](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
  * [Repositorio: openstack-ubuntu-ansible](https://github.com/iesgn/openstack-ubuntu-ansible/tree/ocata)
  * [Configuración post-instalación](doc/post_instalacion.md)
 
