@@ -41,12 +41,15 @@ tema: white
 <section>
   <h3>Keystone</h3>
   <ul>
-    <li>Instalamos los paquetes: keystone, python-keystone, python-keystoneclient, python-oslo.db</li>
+    <li>Instalamos los paquetes: keystone, python-keystone</li>
     <li>Borramos la base de datos sqlite que se crea por defecto</li>
     <li>Copiamos el fichero de configuración: keystone.conf</li>
     <li>Generamos las tablas en la base de datos (db_sync)</li>
+    <li>Configuramos el virtualhost de apache2 para que responda las peticiones a la API de keystone</li>
+    <li>Inicializamos la generación de keys (fernet)</li>
+    <li>damos de alta al admin</li>
     <li>Creamos los datos de keystone (usuarios, roles, tenants, servicios, endpoints, ...). </li>
-    <li>Se crean los ficheros de credenciales: admin_openrc_2.0.sh (API 2.0), admin_openrc.sh (API 3.0), demo_openrc.sh</li>
+    <li>Se crean los ficheros de credenciales en todos los nodos: admin_open.sh, demo_openrc.sh</li>
   </ul>
 </section>
 <section>
