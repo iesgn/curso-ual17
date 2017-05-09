@@ -34,6 +34,8 @@
 
 ### Instalación automática de nuevos nodos de computación con ansible
 
+* [Instalación automática de nuevos nodos de computación con ansible](doc/instalacion_computo.md) 
+
 ### Contenedores en OpenStack (backend en nova, configuración sobre máquinas virtuales, ironic y magnum)
 
 * 10 formas de trabajar con contenedores en OpenStack
