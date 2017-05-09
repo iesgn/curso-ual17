@@ -47,7 +47,7 @@ tema: white
     <li>Generamos las tablas en la base de datos (db_sync)</li>
     <li>Configuramos el virtualhost de apache2 para que responda las peticiones a la API de keystone</li>
     <li>Inicializamos la generación de keys (fernet)</li>
-    <li>damos de alta al admin</li>
+    <li>Damos de alta al admin</li>
     <li>Creamos los datos de keystone (usuarios, roles, tenants, servicios, endpoints, ...). </li>
     <li>Se crean los ficheros de credenciales en todos los nodos: admin_open.sh, demo_openrc.sh</li>
   </ul>
@@ -55,19 +55,22 @@ tema: white
 <section>
   <h3>Glance</h3>
   <ul>
-    <li>Instalamos los paquetes: glance, glance-api, glance-registry, python-glanceclient, glance-common</li>
+    <li>Instalamos los paquetes: glance, glance-api, glance-registry, python-glanceclient, glance-common,...</li>
     <li>Borramos la base de datos sqlite</li>
     <li>Configuramos el servicio: glance-api.conf y glance-registry.conf</li>
     <li>Generamos las tablas en la base de datos (db_sync)</li>
+    <li>Descargamos una imagen Cirros</li>
   </ul>
 </section>
 <section>
   <h3>Nova</h3>
   <ul>
-    <li>Instalamos los paquetes: nova-api, nova-cert, nova-conductor, nova-consoleauth, nova-scheduler, python-novaclient, nova-consoleproxy</li>
+    <li>Instalamos los paquetes: nova-api, nova-conductor, nova-consoleauth, nova-scheduler, python-novaclient, nova-consoleproxy, nova-placement-api</li>
     <li>Borramos la base de datos sqlite</li>
-    <li>Configuramos el servicio: nova.conf y nova-consoleproxy</li>
-    <li>Generamos las tablas en la base de datos (db_sync)</li>
+    <li>Configuramos el servicio: nova.conf</li>
+    <li>Generamos las tablas en la base de datos nova-api (db_sync)</li>
+    <li>Creamos las celdas (cell0 y cell1)</li>
+    <li>Generamos las tablas en la base de datos nova (db_sync)</li>
     
   </ul>
 </section>
@@ -79,6 +82,8 @@ tema: white
     <li>Instalamos python-guestfs, para gestionar y montar las imágenes.</li>
     <li>Borramos la base de datos sqlite</li>
     <li>Configuramos el servicio: nova.conf</li>
+    <li>Damos de alta el nodo de computación en la celda</li>
+
     
   </ul>
 </section>
