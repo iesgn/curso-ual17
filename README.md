@@ -12,14 +12,14 @@
 
 ### Posibles métodos de instalación, con especial énfasis en la automatización
 
-* [Presentación: Opciones de instalación de OpenStack](https://iesgn.github.io/curso-ual17/opcion_instalacion.html#/)
-* [Opciones de instalación de OpenStack](doc/opciones_instalacion.md)
+* [Presentación: Opciones de instalación de OpenStack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/opcion_instalacion.html#/)
+* [Opciones de instalación de OpenStack VERSIÓN EMERGYA!!!](doc/opciones_instalacion.md)
 
 ### Arquitectura de OpenStack. Aspectos a tener en cuenta y novedades en la arquitectura básica
 
-* [Componentes principales de OpenStack](https://iesgn.github.io/curso-ual17/componentes_core.html#/)
-* [Otros componentes de OpenStack](https://iesgn.github.io/curso-ual17/otros_componentes.html#/)
-* [Arquitectura lógica](https://iesgn.github.io/curso-ual17/arquitectura_logica.html#/)
+* [Componentes principales de OpenStack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/componentes_core.html#/)
+* [Otros componentes de OpenStack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/otros_componentes.html#/)
+* [Arquitectura lógica VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/arquitectura_logica.html#/)
 
 
 ### Despliegue automático de un escenario virtual sobre OpenStack con terraform
@@ -30,7 +30,7 @@
 
 ### Instalación automática de OpenStack Ocata con ansible
 
-* [Introducción a la instalación de openstack](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
+* [Introducción a la instalación de openstack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
  * [Repositorio: openstack-ubuntu-ansible](https://github.com/iesgn/openstack-ubuntu-ansible/tree/ocata)
  * [Configuración post-instalación](doc/post_instalacion.md)
 
