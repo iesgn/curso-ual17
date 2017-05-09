@@ -12,7 +12,8 @@
 
 ### Posibles métodos de instalación, con especial énfasis en la automatización
 
-* [Opciones de instalación de OpenStack](https://iesgn.github.io/curso-ual17/opcion_instalacion.html#/)
+* [Presentación: Opciones de instalación de OpenStack](https://iesgn.github.io/curso-ual17/opcion_instalacion.html#/)
+* [Opciones de instalación de OpenStack](doc/opciones_instalacion.md)
 
 ### Arquitectura de OpenStack. Aspectos a tener en cuenta y novedades en la arquitectura básica
 
