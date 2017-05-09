@@ -1,11 +1,4 @@
----
-layout: blog
-tittle: Curso OpenStack
-menu:
-  - Unidades
----
-
-* [Opciones de instalación de OpenStack](opciones_instalacion_openstack)
+# Opciones de instalación de OpenStack
 
 ## Instalación manual
 
@@ -88,8 +81,7 @@ Platform](https://www.redhat.com/es/technologies/linux-platforms/openstack-platf
 Existen manifiestos oficiales de puppet para OpenStack disponibles en
 Github:
 
-*
-  [https://github.com/puppetlabs/puppetlabs-openstack](https://github.com/puppetlabs/puppetlabs-openstack)
+* [https://github.com/puppetlabs/puppetlabs-openstack](https://github.com/puppetlabs/puppetlabs-openstack)
 
 Según lo descrito allí la última versión de OpenStack instalable con
 los mismos es OpenStack Juno
@@ -99,8 +91,7 @@ los mismos es OpenStack Juno
 Las recetas oficiales de chef para la configuración de OpenStack están
 dentro del proyecto OpenStack:
 
-*
-  [https://github.com/openstack/openstack-chef-repo](https://github.com/openstack/openstack-chef-repo)
+* [https://github.com/openstack/openstack-chef-repo](https://github.com/openstack/openstack-chef-repo)
 
 Están preparadas para la instalación de OpenStack Liberty sobre Ubuntu
 14.04 o CentOS 7
