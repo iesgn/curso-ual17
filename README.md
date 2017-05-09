@@ -12,7 +12,7 @@
 
 ### Posibles métodos de instalación, con especial énfasis en la automatización
 
-* [Presentación: Opciones de instalación de OpenStack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/opcion_instalacion.html#/)
+* [Presentación: Opciones de instalación de OpenStack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/opciones_instalacion_openstack.html#/)
 * [Opciones de instalación de OpenStack VERSIÓN EMERGYA!!!](doc/opciones_instalacion.md)
 
 ### Arquitectura de OpenStack. Aspectos a tener en cuenta y novedades en la arquitectura básica
@@ -28,7 +28,7 @@
 
 ### Instalación automática de OpenStack Ocata con ansible
 
-* [Introducción a la instalación de openstack](https://iesgn.github.io/curso-ual17/opciones_instalacion_openstack.html#/)
+* [Introducción a la instalación de openstack](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
  * [Repositorio: openstack-ubuntu-ansible](https://github.com/iesgn/openstack-ubuntu-ansible/tree/ocata)
  * [Configuración post-instalación](doc/post_instalacion.md)
 
