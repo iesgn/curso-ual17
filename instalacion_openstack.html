@@ -17,33 +17,23 @@ tema: white
 </section>
 
 <section>
-<!--  <h3>Escenario de instalación</h3>
-  
-  <ul>
-    <li>Vamos a usar vagrant para crear una máquina virtual con sistema operativo Debian Jessie, con las siguientes características:
-      <ul>
-        <li>Dos tarjetas de red: una interna y una externa (bridge)</li>
-        <li>3 Gib de RAM</li>
-        <li>Un disco secundario</li>
-    </ul>
-    <li><a href="https://github.com/iesgn/openstack-debian-ansible">https://github.com/iesgn/openstack-debian-ansible</a></li>
-  </ul>
-</section> -->
+
 <section>
-  <h3>Preliminares (1)</h3>
+  <h3>Preliminares (1) (En todos los nodos)</h3>
   <ul>
     <li>Instalamos el paquete (software-properties-common): comando add-apt-repository</li>
     <li>Instalamos paquete ubuntu-cloud-keyring</li>
-    <li>Añadimos repositorio OpenStack Kilo de ubuntu</li>
+    <li>Añadimos repositorio OpenStack Ocata de ubuntu</li>
     <li>Actualizamos los respositorios de paquetes</li>
     <li>Instalamos ntp</li>
   </ul>
 </section>
 <section>
-  <h3>Preliminares (2)</h3>
+  <h3>Preliminares (2) (En el controlador)</h3>
   <ul>
-    <li>Instalamos mysql</li>
+    <li>Instalamos mariaDB</li>
     <li>Creamos un usuario y una base de datos por cada uno de los componentes de OpenStack que vamos a instalar (keystone, glance, nova, neutron, ...)</li>
+    <li>Instalamos memcached</li>
     <li>Instalamos rabbitmq</li>
     <li>Instalamos el cliente de linea de comandos (OpenStack Client)</li>
   </ul>
