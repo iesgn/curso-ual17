@@ -28,9 +28,9 @@ tema: white
     <li>Tenemos la posibilidad de instalar un entorno de pruebas (no para su
     explotación) en un equipo para tener una primera experiencia del
     funcionamiento de OpenStack</li>
-    <li>La administración y gestión de Openstack es un proceso complejo y su
-    descripción detallada precisaría de un curso específico. Esto no es más que
-    un pequeño esbozo</li>
+    <!-- <li>La administración y gestión de Openstack es un proceso complejo y su -->
+    <!-- descripción detallada precisaría de un curso específico. Esto no es más que -->
+    <!-- un pequeño esbozo</li> -->
   </ul>
 </section>
 <section>
@@ -44,7 +44,7 @@ tema: white
       OpenStack que no los incluyan</li>
     <li>Salvo necesidad no utilizar la última versión publicada ya que suelen
       aparecer bastantes "bugs" en los primeros meses</li>
-    <li>Las opciones recomendadas en estos momentos serían Kilo (2015.1) o Liberty</li>
+    <li>Las opciones recomendadas en estos momentos serían Newton y Ocata</li>
     <li>No es igual elegir una versión para un entorno de pruebas que para un
     entorno en producción</li>
 </section>
@@ -54,7 +54,7 @@ tema: white
     <li>Elegir una distribución GNU/Linux que incluya en sus repositorios los
     paquetes de OpenStack:</li> 
       <ul>
-        <li>Debian, Ubuntu, openSUSE, Red Hat, CentOS, Fedora</li>
+        <li>Ubuntu, openSUSE o CentOS</li>
 	<li>Las más utilizadas son Ubuntu y CentOS</li>
       </ul>
     <li>Realiza una instalación manual siguiendo
@@ -72,17 +72,16 @@ tema: white
       <ul>
         <li><a href="http://docs.opscode.com/openstack.html">Chef</a> - <a href="https://github.com/stackforge/openstack-chef-repo">Repositorio GitHub</a></li>
         <li><a href="http://github.com/puppetlabs/puppetlabs-openstack">Puppet</a> - Ejemplo: <a href="https://www.rdoproject.org/Main_Page">RDO</a> </li>
+	<li><a href="https://github.com/openstack/openstack-salt">Salt</a></li>
         <li>Ansible:
 	  <ul>
 	    <li><a href="https://github.com/openstack/openstack-ansible">OpenStack Ansible</a></li>
 	    <li>Muy utilizado con libros de jugadas elaborados por los
-	      usuarios. Ejemplo: <a href="https://github.com/openstack-ansible/openstack-ansible">openstack-ansible</a></li>
-	    
-	    <li>Nuestro caso: <a href="https://github.com/iesgn/openstack-debian-ansible">https://github.com/iesgn/openstack-debian-ansible</a></li>
+	      usuarios.</li>	    
+	    <li>Nuestro caso: <a href="https://github.com/iesgn/openstack-ubuntu-ansible">https://github.com/iesgn/openstack-ubuntu-ansible</a></li>
 	  </ul>
 	</li>
       </ul>
-    <li>Desventaja: Se pierden los detalles de la instalación</li>
   </ul>
 </section>
 
@@ -128,15 +127,15 @@ tema: white
     <li><a href="https://www.openstack.org/software/project-navigator/">Navigator Project</a></li>
 </section>
 
-<section>
-  <h2>Instalación de un entorno de pruebas</h2>
-  <ul>
-    <li><a href="http://docs.openstack.org/developer/devstack/">Devstack:</a>
-    es un conjunto de script bash que nos permiten instalar OpenStack
-    de forma automática. </li>
-    <li>Es el entorno que usan los desarrolladores de OpenStack para
-    tener una instalación limpia</li> 
-    <li>No sirve para entornos en producción</li> 
-    <li>Tutorial: <a href="http://www.josedomingo.org/pledin/2014/11/instalar-open-stack-juno-con-devstack/">Instalar Open Stack Juno con devstack</a></li>
-  </ul>
-</section>
+<!-- <section> -->
+<!--   <h2>Instalación de un entorno de pruebas</h2> -->
+<!--   <ul> -->
+<!--     <li><a href="http://docs.openstack.org/developer/devstack/">Devstack:</a> -->
+<!--     es un conjunto de script bash que nos permiten instalar OpenStack -->
+<!--     de forma automática. </li> -->
+<!--     <li>Es el entorno que usan los desarrolladores de OpenStack para -->
+<!--     tener una instalación limpia</li>  -->
+<!--     <li>No sirve para entornos en producción</li>  -->
+<!--     <li>Tutorial: <a href="http://www.josedomingo.org/pledin/2014/11/instalar-open-stack-juno-con-devstack/">Instalar Open Stack Juno con devstack</a></li> -->
+<!--   </ul> -->
+<!-- </section> -->
