@@ -1,0 +1,207 @@
+heat_template_version: 2017-02-24
+
+description: 
+  Creación de infrestrucutra para la instalación de OpenStack sobre OpenStack
+
+parameters:
+  
+  instance_type_controller:
+    type: string
+    label: Sabor para el controlador
+    description: Sabor para el nodo controlodar
+    default: m1.small
+    constraints:
+      - custom_constraint: nova.flavor
+
+  instance_type_nodes:
+    type: string
+    label: Sabor para los demás nodos
+    description: Sabor para los nodos de openstack
+    default: m1.small
+    constraints:
+      - custom_constraint: nova.flavor
+
+
+  image_id:
+    type: string
+    label: Imagen
+    description: Nombre de la imagen para crear los nodos
+    constraints:
+      - custom_constraint: glance.image
+
+  net_ext:
+    type: string
+    label: Red pública externa
+    description: Red externa pública
+    default: ext-net
+
+  subred_ext:
+    type: string
+    label: CIDR de la red externa
+    description: CIDR de la red externa que se va a crear para conectar los nodos
+    default: 192.168.200.0/24
+
+  subred_int:
+    type: string
+    label: CIDR de la red interna
+    description: CIDR de la red interna que se va a crear para conectar los nodos
+    default: 192.168.201.0/24
+
+  dns:
+    type: string
+    label: DNS
+    description: Dns de la red externa pública
+    default: 192.168.102.2
+
+  
+
+
+resources:
+
+  
+  router:
+    type: 'OS::Neutron::Router'
+    properties:
+      name: router-openstack
+      external_gateway_info:
+        network: { get_param: net_ext }
+  
+  router_interface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router: {get_resource: router}
+      subnet: {get_resource: subnet_ext}
+
+  network_ext:
+    type: OS::Neutron::Net
+    properties: {name: red-ext-openstack}
+
+  subnet_ext:
+    type: OS::Neutron::Subnet
+    properties:
+      network: {get_resource: network_ext}
+      ip_version: 4
+      dns_nameservers: [{ get_param: dns}]
+      name: subred-ext-openstack
+      cidr: { get_param: subred_ext}
+
+  network_int:
+    type: OS::Neutron::Net
+    properties: {name: red-int-openstack}
+
+  subnet_int:
+    type: OS::Neutron::Subnet
+    properties:
+      network: {get_resource: network_int}
+      ip_version: 4
+      name: subred-int-openstack
+      cidr: { get_param: subred_int}
+
+  port_controller_ext:
+    type: OS::Neutron::Port
+    properties:
+      name: port_controller_ext
+      network: {get_resource: network_ext}
+      port_security_enabled: False
+      security_groups: []
+      fixed_ips: 
+      - subnet: {get_resource: subnet_ext}
+        ip_address: 
+          yaql: 
+            expression: $.data.list_param.replace("0/24","10")
+            data: 
+              list_param: { get_param: subred_ext }
+  
+  port_controller_int:
+    type: OS::Neutron::Port
+    properties:
+      name: port_controller_int
+      network: {get_resource: network_int}
+      port_security_enabled: False
+      security_groups: []
+      fixed_ips: 
+      - subnet: {get_resource: subnet_int}
+        ip_address: 
+          yaql: 
+            expression: $.data.list_param.replace("0/24","10")
+            data: 
+              list_param: { get_param: subred_int }
+
+  port_computer_ext:
+    type: OS::Neutron::Port
+    properties:
+      name: port_computer_ext
+      network: {get_resource: network_ext}
+      port_security_enabled: False
+      security_groups: []
+      fixed_ips: 
+      - subnet: {get_resource: subnet_ext}
+        ip_address: 
+          yaql: 
+            expression: $.data.list_param.replace("0/24","11")
+            data: 
+              list_param: { get_param: subred_ext }
+  
+  port_computer_int:
+    type: OS::Neutron::Port
+    properties:
+      name: port_computer_int
+      network: {get_resource: network_int}
+      port_security_enabled: False
+      security_groups: []
+      fixed_ips: 
+      - subnet: {get_resource: subnet_int}
+        ip_address: 
+          yaql: 
+            expression: $.data.list_param.replace("0/24","11")
+            data: 
+              list_param: { get_param: subred_int }
+  key_ssh:
+    type: OS::Nova::KeyPair
+    properties:
+      name: key-openstack
+      save_private_key: True
+      
+  controller_floating_ip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network: { get_param: net_ext }
+      port_id: { get_resource: port_controller_ext }
+
+  computer_floating_ip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network: { get_param: net_ext }
+      port_id: { get_resource: port_computer_ext }
+
+
+  Controller:
+    type: OS::Nova::Server
+    properties:
+      name: controlador
+      image: { get_param: image_id }
+      flavor: { get_param: instance_type_controller }
+      key_name: { get_resource: key_ssh }
+      networks: [{"port":{get_resource: port_controller_ext}},{"port": {get_resource: port_controller_int}}]
+
+  Compute:
+    type: OS::Nova::Server
+    properties:
+      name: compute1
+      image: { get_param: image_id }
+      flavor: { get_param: instance_type_nodes }
+      key_name: { get_resource: key_ssh }
+      networks: [{"port":{get_resource: port_computer_ext}},{"port": {get_resource: port_computer_int}}]
+  
+      
+outputs:
+  private_key:
+    description: La clave ssh privada
+    value: { get_attr: [key_ssh, private_key] }
+
+  controller_ip:
+    description: Ip flotante del controlador
+    value: { get_attr: [controller_floating_ip, floating_ip_address ] }
+  computer_ip:
+    description: Ip flotante del computer
+    value: { get_attr: [computer_floating_ip, floating_ip_address ] }
