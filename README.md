@@ -25,6 +25,7 @@
 ### Despliegue automático de un escenario virtual sobre OpenStack con terraform
 
  * [Repositorio: terraform-openstack](https://github.com/iesgn/terraform-openstack/)
+ * [Despliegue del escenario usando heat](https://github.com/iesgn/curso-ual17/blob/master/doc/heat.yaml)
 
 ### Instalación automática de OpenStack Ocata con ansible
 
@@ -36,7 +37,7 @@
 
 * [Instalación automática de nuevos nodos de computación con ansible](doc/instalacion_computo.md) 
 
-### Contenedores en OpenStack (backend en nova, configuración sobre máquinas virtuales, ironic y magnum)
+### Contenedores en OpenStack 
 
 * 10 formas de trabajar con contenedores en OpenStack
 * [Introducción a kubernetes](doc/introduccion_kubernetes.md)
