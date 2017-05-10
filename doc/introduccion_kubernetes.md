@@ -6,7 +6,7 @@ Es un proyecto open source de Google para la gestión de aplicaciones en contene
 
 Un clúster de Kubernetes está formado por nodos o minions (kubelet) y por los componentes del Master (APIs, scheduler, etc) encima de una solución de almacenamiento distribuido.
 
-imagen
+![k8s](img/k8s.jpg)
 
 ## Kubernetes Master
 
@@ -50,6 +50,8 @@ datos. En el caso de un clúster Kubernetes existen dos elementos para resolver 
 * Para comunicar contenedores entre diferentes nodos podemos utilziar varias implementaciones, la más usada es Flannel:
 
 	* Flannel: Desarrollado por CoreOS y pensado para Kubernetes, permite que las distintas subredes entre los nodos se comuniquen entre sí. Funciona como una virtual extended LAN (VXLAN), que crea un número identificador de red. Cada nodo utiliza una interfaz virtual llamada flannel que administra el segmento de red de cada subred.
+
+![flannel](img/flannel.png)
 
 ## Volúmenes en kubernetes
 
