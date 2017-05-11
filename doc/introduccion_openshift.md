@@ -1,4 +1,4 @@
-# Introducción a openshift 3
+# Introducción a OpenShift 3
 
 Openshift 3 es un PaaS que utiliza contenedores (docker y kebernetes) para la construcción, ejecución y despliegue de aplicaciones. 
 
@@ -28,7 +28,7 @@ Entre sus características podemos destacar las siguientes:
 ## Construcción de una aplicación con Web Console
 
 Vamos a desplegar una aplicación bottle python que podemos ver en [https://github.com/josedom24/bottle_openshift_v3](https://github.com/josedom24/bottle_openshift_v3).
-
+Es una aplicación construida con el microframework `bottle` que va a utilizar el servidor `gunicorn` para ejecutarla, por lo tanto esos dos paquetes estarán indicados en el fichero `requirements.txt`.
 
 Añadimos un proyecto, le ponemos un nombre, y a continuación elegimos la estrategia de "build", en nuestro caso S2I, por lo que en el catalogo de imágenes escogemos python 2.7.
 
@@ -48,3 +48,74 @@ Si cambiamos el código de nuestra aplicación, tendremos que crear un nuevo bui
 Por último accediendo a la ruta generada para nuestro proyecto accedemos a la aplicación:
 
 ![oc](img/oc4.png)
+
+## Construcción de una aplicación con OpenShift CLI
+
+Para obtener información del cliente de comandos, accedemos a la opción "Command Line Tools" en el ícono de ayuda.
+
+![oc](img/oc5.png)
+
+En es ventana podremos bajarnos el cliente y copiar en el portapapeles las credenciales para conectar a OpenShift.
+
+Nos conectamos con el siguiente comando:
+
+	oc login https://api.starter-us-east-1.openshift.com --token=xxxxxxxxxxxxxxx
+
+A continuación creamos un proyecto:
+
+	oc new-project prueba-bottle
+
+Y una aplicación:
+
+	oc new-app python~https://github.com/josedom24/bottle_openshift_v3.git --name app-bottle                                              16:00:29 
+	--> Found image 22060ec (2 weeks old) in image stream "python in project openshift" under tag :latest for "python"
+	    * A source build using source code from https://github.com/josedom24/bottle_openshift_v3.git will be created
+	      * The resulting image will be pushed to image stream "app-bottle:latest"
+	    * This image will be deployed in deployment config "app-bottle"
+	    * Port 8080/tcp will be load balanced by service "app-bottle"
+	--> Creating resources with label app=app-bottle ...
+	    ImageStream "app-bottle" created
+	    BuildConfig "app-bottle" created
+	    DeploymentConfig "app-bottle" created
+	    Service "app-bottle" created
+	--> Success
+	    Build scheduled for "app-bottle" - use the logs command to track its progress.
+	    Run 'oc status' to view your app.
+
+Al cabo de unos instantes, vemos el estado de la aplicación:
+
+	oc status                                                                       
+	In project prueba-bottle on server https://api.starter-us-east-1.openshift.com:443	
+
+	svc/app-bottle - 172.30.3.70:8080
+	  dc/app-bottle deploys imagestreamtag/app-bottle:latest <-
+	    bc/app-bottle builds https://github.com/josedom24/bottle_openshift_v3.git with openshift/python:latest 
+	    #1 deployed 2 minutes ago - 1 pod
+
+Cuando usamos `oc new-app` necesitamos explicitamente crear el servicio y la ruta de acceso, para ello:
+
+	oc expose svc/app-bottle
+	route "app-bottle" exposed
+
+Y podemos obtener los pods que hemos creado y la rutas para obtener a la aplicación:
+
+	oc get pods                                                                
+	
+	NAME                 READY     STATUS      RESTARTS   AGE
+	app-bottle-1-build   0/1       Completed   0          6m
+	app-bottle-1-fpbkk   1/1       Running     0          4m
+
+	oc get routes
+
+	NAME         HOST/PORT                                                           PATH      SERVICE      LABELS           INSECURE POLICY   TLS TERMINATION
+	app-bottle   app-bottle-prueba-bottle.1d35.starter-us-east-1.openshiftapps.com             app-bottle   app=app-bottle                 
+
+Ya podemos acceder a `app-bottle-prueba-bottle.1d35.starter-us-east-1.openshiftapps.com`.
+
+Si modificamos nuestra aplicación y ya hemos subido los cambios al repositorio GitHub, tendríamos que hacer una nueva construcción con:
+
+	oc start-build app-bottle
+
+Por último para borrar nuestra aplicación:
+
+	oc delete all --selector app=app-bottle
