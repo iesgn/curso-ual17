@@ -1,14 +1,17 @@
-# Curso de actualización de Openstack en la Universidad de Almeria - Mayo 2017
+# Curso de infraestructura Cloud con OpenStack. Universidad de Almeria
+  - Mayo 2017 
 
+### Presentación del curso
+
+* [Presentación: Curso de infraestructura Cloud con
+  OpenStack](https://iesgn.github.io/curso-ual17/presentacion.html#/) 
 
 ### OpenStack Ocata: Novedades.
-
 
 * [Keystone Domains](https://wiki.openstack.org/wiki/Domains)
 * [Hierarchical Projects](https://specs.openstack.org/openstack/keystone-specs/specs/juno/hierarchical_multitenancy.html)
 * [Cells](https://docs.openstack.org/developer/nova/cells.html#manifesto)
 * [Placement API](https://docs.openstack.org/developer/nova/placement.html)
-
 
 ### Posibles métodos de instalación, con especial énfasis en la automatización
 
