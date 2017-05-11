@@ -22,30 +22,17 @@ tema: white
   <h3>Hypervisor LXC</h3>
   <ul>
     <li><a href="https://docs.openstack.org/ocata/config-reference/compute/hypervisor-lxc.html">Usar LCX como hipervisor</a></li>
-  </ul>
-    <p>LXC:utiliza técnicas de virtualización a nivel de sistema operativo, de modo que sólo hay un núcleo, en nuestro caso el Linux que se ejecuta en el equipo anfitrión, que mediante diferentes funciones (namespaces, cgroups, ...) muestra vistas parciales a algunos procesos para que crean que se ejecutan en un sistema aislado.</p>
-  <ul>
-    <li>Se gestionan sobre libvirt</li>
     <li>El proyecto de usar Docker como supervisor ha desaparecido en OpenSatck</li>
-  </ul>
-  
-</section>
-<section>
-<h3>Ventajas</h3>
-  <ul>
     <li>Podemos crear muchas más contenedores que MV</li>
     <li>La creación de los contenedores es mucho más rápida</li>
     <li>Podemos tener nodos de computo con KVM y otros con LXC (zonas distintas)</li>
-  </ul>
-
-<h3>Desventajas</h3>
-  <ul>
     <li>No tenemos a nuestra disponibilidad todas las opciones de OS: <a href="https://docs.openstack.org/developer/nova/support-matrix.html">Feature Support Matrix</a></li>
     <li>Necesitamos imágenes para LXC</li>
     <li>No podemos ejecutar otros sistemas operativos</li>
   </ul>
+  
 </section>
-</section>
+
 
 
 <section>
