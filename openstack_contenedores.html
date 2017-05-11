@@ -65,14 +65,14 @@ tema: white
   
 </section>
 
-</section>
+
 
 <section>
   <h3>Instalación manual de k8s</h3>
   
     <p>Instalar manualmente los distintos componentes del cluster. Construcción de cluster en producción, con características específicas, alta disponibilidad. </p>
     <ul>
-      <li>Tenemos que decidir en que infraestructura vamos a realizar la instalación: Máuina local, virtual, cloud, bare metal,...</li>
+      <li>Tenemos que decidir en que infraestructura vamos a realizar la instalación: Máquina local, virtual, cloud, bare metal,...</li>
       <li>Tenemos el control de la instalación y comprendemos perfectamente la arquitectura...</li>
       <li>...pero, puede ser complicado según nuestras necesidades.</li>
     </ul>
@@ -80,5 +80,16 @@ tema: white
 
 </section>
 
+
+
+<section>
+  <h3>Heat (k8s SIG)</h3>
+  
+    <p><a href="https://github.com/kubernetes/community/tree/master/sig-openstack">Kubernetes OpenStack SIG</a> (Grupo de Interés) (distintos grupos para desplegar K8s en distintos entornos) desarrolla <a href="https://github.com/kubernetes/kubernetes/tree/master/cluster/openstack-heat">plantillas Heat</a> que permiten desplegar un cluster K8S en Openstack. </p>
+    <ul>
+      <li>Esta solución facilita la provisón de recursos de OS</li>
+      <li>El nivel de desarrollo del proyecto sólo ofrece la construcción de cluster en pruebas, faltando todavía algunas funcionalidades...</li>
+    </ul>
 </section>
+
 
