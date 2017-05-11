@@ -16,55 +16,99 @@ tema: white
   <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
 </section>
 
-<section>
+
 
 <section>
   <h3>Hypervisor LXC</h3>
   <ul>
     <li><a href="https://docs.openstack.org/ocata/config-reference/compute/hypervisor-lxc.html">Usar LCX como hipervisor</a></li>
-  </ul>
-    <p>LXC:utiliza técnicas de virtualización a nivel de sistema operativo, de modo que sólo hay un núcleo, en nuestro caso el Linux que se ejecuta en el equipo anfitrión, que mediante diferentes funciones (namespaces, cgroups, ...) muestra vistas parciales a algunos procesos para que crean que se ejecutan en un sistema aislado.</p>
-  <ul>
-    <li>Se gestionan sobre libvirt</li>
-    <li>El proyecto de usar Docker como supervisor ha desaparecido en OpenSatck</li>
-  </ul>
-  
-</section>
-<section>
-<h3>Ventajas</h3>
-  <ul>
+    <li>El proyecto de usar Docker como hypervisor ha desaparecido en OpenSatck</li>
     <li>Podemos crear muchas más contenedores que MV</li>
     <li>La creación de los contenedores es mucho más rápida</li>
     <li>Podemos tener nodos de computo con KVM y otros con LXC (zonas distintas)</li>
-  </ul>
-
-<h3>Desventajas</h3>
-  <ul>
     <li>No tenemos a nuestra disponibilidad todas las opciones de OS: <a href="https://docs.openstack.org/developer/nova/support-matrix.html">Feature Support Matrix</a></li>
     <li>Necesitamos imágenes para LXC</li>
     <li>No podemos ejecutar otros sistemas operativos</li>
   </ul>
+  
 </section>
-</section>
+
 
 
 <section>
   <h3>KubeAdm y MiniKube</h3>
   
-    <p>No están diseñado especificamente para Openstack. Son opciones que despliegan entornos de pruebas para tener un primer contacto con k8s. No ofrecen soluciones para integrarse con OpenStack.</p>
+    <p>No están diseñado específicamente para Openstack. Delegan entornos de pruebas para probar k8s. No ofrecen soluciones para integrarse con OpenStack.</p>
   <table>
     <tr>
       <td>
         <a href="https://kubernetes.io/docs/getting-started-guides/kubeadm/">KubeAdm</a>(Ubuntu 16.04 y CentOS 7) monta un cluster K8S de forma sencilla en máquinas físicas, virtuales o instancias. Actualmente su desarrollo está en fase alpha.
       </td>
       <td>
-        <a href="https://github.com/kubernetes/minikube">MiniKube</a>(Linux/OSX): Monta un cluster K8S en un nodo, una máquina virtual (VirtualBox, KVM, VmWare,...). Monta un entorno de prueba local. No posee algunas funciones de K8S (Balanceador,Volúmenes,...)
+        <a href="https://kubernetes.io/docs/getting-started-guides/minikube/">MiniKube</a>(Linux/OSX): Monta un cluster K8S en un nodo, una máquina virtual (VirtualBox, KVM, VmWare,...). Monta un entorno de prueba local. No posee algunas funciones de K8S (Balanceador,Volúmenes,...)
       </td>
     </tr>
   </table>
   
 </section>
 
+
+
+<section>
+  <h3>Instalación manual de k8s</h3>
+  
+    <p>Instalar manualmente los distintos componentes del cluster. Construcción de cluster en producción, con características específicas, alta disponibilidad. </p>
+    <ul>
+      <li>Tenemos que decidir en que infraestructura vamos a realizar la instalación: Máquina local, virtual, cloud, bare metal,...</li>
+      <li>Tenemos el control de la instalación y comprendemos perfectamente la arquitectura...</li>
+      <li>...pero, puede ser complicado según nuestras necesidades.</li>
+    </ul>
+
+
+</section>
+
+
+
+<section>
+  <h3>Heat (k8s SIG)</h3>
+  
+    <p><a href="https://github.com/kubernetes/community/tree/master/sig-openstack">Kubernetes OpenStack SIG</a> (Grupo de Interés) (distintos grupos para desplegar K8s en distintos entornos) desarrolla <a href="https://github.com/kubernetes/kubernetes/tree/master/cluster/openstack-heat">plantillas Heat</a> que permiten desplegar un cluster K8S en Openstack. </p>
+    <ul>
+      <li>Esta solución facilita la provisón de recursos de OS</li>
+      <li>El nivel de desarrollo del proyecto sólo ofrece la construcción de cluster en pruebas, faltando todavía algunas funcionalidades...</li>
+    </ul>
+</section>
+
+<section>
+  <h3>Kargo (KubeSpray)</h3>
+  
+    <p><a href="https://github.com/kubernetes-incubator/kargo">Kargo</a> es un proyecto Open Source que le permite implementar un cluster de k8s en Bare Metal, AWS, GCE y OS usando una combinación de Terraform y Ansible.</p>
+    <ul>
+      <li>Capaz de aprovisionar recursos de OS para deplegar cluster de k8s Multi-Master / HA</li>
+      <li>Es muy configurable, y funciona con las distribuciones linux más populares.</li>
+      <li>La instalación es complicada, para usuarios avanzados con conocimiento en automatización con ansible</li>
+    </ul>
+</section>
+
+<section>
+  <h3>Juju</h3>
+  
+   
+</section>
+<section>
+  <h3>OpenShift</h3>
+  
+   
+</section>
+<section>
+  <h3>Magnum</h3>
+  
+   
+</section>
+<section>
+  <h3>Murano</h3>
+  
+   
 </section>
 
 
