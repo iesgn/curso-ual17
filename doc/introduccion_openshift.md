@@ -29,9 +29,8 @@ Entre sus características podemos destacar las siguientes:
 
 Vamos a desplegar una aplicación bottle python que podemos ver en [https://github.com/josedom24/bottle_openshift_v3](https://github.com/josedom24/bottle_openshift_v3).
 
-### Despliegue de la aplicación
 
-Añadimos un projecto, le ponemos un nombre, y acontinuación elegimos la estrategia de "build", en nuestro caso S2I, por lo que en el catalogo de imágenes escogemos python 2.7.
+Añadimos un proyecto, le ponemos un nombre, y a continuación elegimos la estrategia de "build", en nuestro caso S2I, por lo que en el catalogo de imágenes escogemos python 2.7.
 
 
 ![oc](img/oc1.png)
@@ -45,3 +44,7 @@ Una vez que hemos accedido al dashboard observamos que se ha comenzado a realiza
 ![oc](img/oc3.png)
 
 Si cambiamos el código de nuestra aplicación, tendremos que crear un nuevo build para que se cree una nueva imagen que sea desplegada.
+
+Por último accediendo a la ruta generada para nuestro proyecto accedemos a la aplicación:
+
+![oc](img/oc4.png)
