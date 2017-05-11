@@ -51,14 +51,14 @@ tema: white
 <section>
   <h3>KubeAdm y MiniKube</h3>
   
-    <p>No están diseñado especificamente para Openstack. Son opciones que despliegan entornos de pruebas para tener un primer contacto con k8s. No ofrecen soluciones para integrarse con OpenStack.</p>
+    <p>No están diseñado específicamente para Openstack. Son opciones que despliegan entornos de pruebas para tener un primer contacto con k8s. No ofrecen soluciones para integrarse con OpenStack.</p>
   <table>
     <tr>
       <td>
         <a href="https://kubernetes.io/docs/getting-started-guides/kubeadm/">KubeAdm</a>(Ubuntu 16.04 y CentOS 7) monta un cluster K8S de forma sencilla en máquinas físicas, virtuales o instancias. Actualmente su desarrollo está en fase alpha.
       </td>
       <td>
-        <a href="https://github.com/kubernetes/minikube">MiniKube</a>(Linux/OSX): Monta un cluster K8S en un nodo, una máquina virtual (VirtualBox, KVM, VmWare,...). Monta un entorno de prueba local. No posee algunas funciones de K8S (Balanceador,Volúmenes,...)
+        <a href="https://kubernetes.io/docs/getting-started-guides/minikube/">MiniKube</a>(Linux/OSX): Monta un cluster K8S en un nodo, una máquina virtual (VirtualBox, KVM, VmWare,...). Monta un entorno de prueba local. No posee algunas funciones de K8S (Balanceador,Volúmenes,...)
       </td>
     </tr>
   </table>
@@ -67,4 +67,18 @@ tema: white
 
 </section>
 
+<section>
+  <h3>Instalación manual de k8s</h3>
+  
+    <p>Instalar manualmente los distintos componentes del cluster. Construcción de cluster en producción, con características específicas, alta disponibilidad. </p>
+    <ul>
+      <li>Tenemos que decidir en que infraestructura vamos a realizar la instalación: Máuina local, virtual, cloud, bare metal,...</li>
+      <li>Tenemos el control de la instalación y comprendemos perfectamente la arquitectura...</li>
+      <li>...pero, puede ser complicado según nuestras necesidades.</li>
+    </ul>
+
+
+</section>
+
+</section>
 
