@@ -1,0 +1,145 @@
+---
+layout: presentacion
+title: Opciones de instalación de Openstack
+tema: white
+---
+<section>
+  <h2>Opciones de instalación de OpenStack</h2>
+  <p>
+    <a href="http://albertomolina.wordpress.com">Alberto Molina Coballes</a> y
+    <a href="http://www.josedomingo.org">José Domingo Muñoz Rodríguez</a>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>
+      Theme
+      by <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a>
+    </small>
+  </p>
+</section>
+<section>
+  <h2>Por dónde empezar...</h2>
+  <ul>
+    <li>Si hemos decidido la implantación de un cloud privado IaaS con OpenStack
+    tenemos que ver cómo vamos a realizar la instalación y configuración del
+    mismo.</li>
+    <li>Tenemos la posibilidad de instalar un entorno de pruebas (no para su
+    explotación) en un equipo para tener una primera experiencia del
+    funcionamiento de OpenStack</li>
+    <!-- <li>La administración y gestión de Openstack es un proceso complejo y su -->
+    <!-- descripción detallada precisaría de un curso específico. Esto no es más que -->
+    <!-- un pequeño esbozo</li> -->
+  </ul>
+</section>
+<section>
+  <h2>¿Privado o privado alojado?</h2>
+  <img src="img/opciones_instalacion_openstack/user-survey1.png" />
+</section>
+<section>
+  <h2>Elegir una versión</h2>
+  <ul>
+    <li>Elegir qué componentes son necesarios y descartar las versiones de
+      OpenStack que no los incluyan</li>
+    <li>Salvo necesidad no utilizar la última versión publicada ya que suelen
+      aparecer bastantes "bugs" en los primeros meses</li>
+    <li>Las opciones recomendadas en estos momentos serían Newton y Ocata</li>
+    <li>No es igual elegir una versión para un entorno de pruebas que para un
+    entorno en producción</li>
+</section>
+<section>
+  <h2>Instalación manual</h2>
+  <ul>
+    <li>Elegir una distribución GNU/Linux que incluya en sus repositorios los
+    paquetes de OpenStack:</li> 
+      <ul>
+        <li>Ubuntu, openSUSE o CentOS</li>
+	<li>Las más utilizadas son Ubuntu y CentOS</li>
+      </ul>
+    <li>Realiza una instalación manual siguiendo
+      la <a href="http://docs.openstack.org/">documentación oficial</a></li>
+    <li>Es recomendable hacer al menos una vez una instalación manual para
+    familiarizarse con los componentes de OpenStack</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Instalación automática</h2>
+  <ul>
+    <li>Existen "recetas" elaboradas con las herramientas de
+    automatización de la configuración más populares:</li> 
+      <ul>
+        <li><a href="http://docs.opscode.com/openstack.html">Chef</a> - <a href="https://github.com/stackforge/openstack-chef-repo">Repositorio GitHub</a></li>
+        <li><a href="http://github.com/puppetlabs/puppetlabs-openstack">Puppet</a> - Ejemplo: <a href="https://www.rdoproject.org/Main_Page">RDO</a> </li>
+	<li><a href="https://github.com/openstack/openstack-salt">Salt</a></li>
+        <li>Ansible:
+	  <ul>
+	    <li><a href="https://github.com/openstack/openstack-ansible">OpenStack Ansible</a></li>
+	    <li>Muy utilizado con libros de jugadas elaborados por los
+	      usuarios.</li>	    
+	    <li>Nuestro caso: <a href="https://github.com/iesgn/openstack-ubuntu-ansible">https://github.com/iesgn/openstack-ubuntu-ansible</a></li>
+	  </ul>
+	</li>
+      </ul>
+  </ul>
+</section>
+
+<section>
+  <h2>Instalación usando distros específicas</h2>
+  <ul>
+    <li>Existen
+    varias <a href="https://www.openstack.org/marketplace/distros/">distribuciones
+    de OpenStack</a>, libres o no, muchas de ellas te ofrecen
+    herramientas específicas para realizar una implantación, por ejemplo:
+      <ul>
+	<li><a href="https://www.rdoproject.org/Main_Page">RDO</a></li>
+        <li><a href="https://software.mirantis.com/openstack-download-form/">Mirantis
+        Fuel</a></li>
+        <li><a href="http://www.rackspace.com/cloud/private/openstack/software/">Rackspace
+        Private Cloud</a></li>
+        <li><a href="http://www.ubuntu.com/download/cloud/install-ubuntu-openstack">Ubuntu
+            OpenStack</a></li>
+	<li><a href="http://www.vmware.com/products/openstack">VMware
+	    Integrated OpenStack</a></li>
+	<li><a href="http://www8.hp.com/us/en/cloud/hphelion-openstack.html">HP
+	Helion</a></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Ubuntu Autopilot/MaaS/Juju</h2>
+  
+
+<section>
+  <h2>OpenStack on OpenStack (TripleO)</h2>
+  <ul>
+    <li>Principalmente pensado para grandes despliegues en centros de datos</li>
+    <li>Muy relacionado con Ironic</li>
+    <li>Utiliza templates de heat</li>
+    <li>Undercloud/Overcloud</li>
+  </ul>
+  <p><a href="https://trickycloud.wordpress.com/2015/11/15/openstack-lab-on-your-laptop-with-tripleo-and-director/">OpenStack lab on your laptop with TripleO and director</a></p>
+</section>
+<section>
+  <h2>Componentes a incluir</h2>
+  <ul>
+    <li>Componentes "core"</li>
+    <li>Componentes adicionales</li>
+    <li><a href="https://www.openstack.org/software/project-navigator/">Navigator Project</a></li>
+</section>
+
+<!-- <section> -->
+<!--   <h2>Instalación de un entorno de pruebas</h2> -->
+<!--   <ul> -->
+<!--     <li><a href="http://docs.openstack.org/developer/devstack/">Devstack:</a> -->
+<!--     es un conjunto de script bash que nos permiten instalar OpenStack -->
+<!--     de forma automática. </li> -->
+<!--     <li>Es el entorno que usan los desarrolladores de OpenStack para -->
+<!--     tener una instalación limpia</li>  -->
+<!--     <li>No sirve para entornos en producción</li>  -->
+<!--     <li>Tutorial: <a href="http://www.josedomingo.org/pledin/2014/11/instalar-open-stack-juno-con-devstack/">Instalar Open Stack Juno con devstack</a></li> -->
+<!--   </ul> -->
+<!-- </section> -->
