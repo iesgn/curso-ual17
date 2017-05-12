@@ -18,11 +18,11 @@ HAY QUE DARLE UN HILO A ESTAS SECCIONES
 ### Posibles métodos de instalación, con especial énfasis en la automatización
 
 * [Presentación: Opciones de instalación de OpenStack](https://iesgn.github.io/curso-ual17/opciones_instalacion_openstack.html#/)
-* [Opciones de instalación de OpenStack VERSIÓN EMERGYA!!!](doc/opciones_instalacion.md)
+* [Opciones de instalación de OpenStack(doc/opciones_instalacion.md) <--- ¿REPETIDO?
 
 ### Arquitectura de OpenStack. Aspectos a tener en cuenta y novedades en la arquitectura básica
 
-* [Componentes principales de OpenStack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/componentes_core.html#/)
+* [Componentes principales de OpenStack](https://iesgn.github.io/curso-ual17/componentes_core.html#/)
 * [Otros componentes de OpenStack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/otros_componentes.html#/)
 * [Arquitectura lógica VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/arquitectura_logica.html#/)
 
