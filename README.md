@@ -1,2 +1,1 @@
-# curso-ual17
-Curso de instalación de Openstack en la Universidad de Almeria - Mayo 2017
+[Curso de infraestructura Cloud con OpenStack. Universidad de Almeria - Mayo 2017](https://github.com/iesgn/curso-ual17)
