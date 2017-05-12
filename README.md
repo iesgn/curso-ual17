@@ -6,6 +6,8 @@
 * [Presentación: Curso de infraestructura Cloud con
   OpenStack](https://iesgn.github.io/curso-ual17/presentacion_curso_ual.html#/)
 
+* [Desarrollo del concepto principal](/doc/concepto.md)
+
 ### OpenStack Ocata: Novedades.
 
 HAY QUE DARLE UN HILO A ESTAS SECCIONES
