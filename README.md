@@ -8,6 +8,8 @@
 
 ### OpenStack Ocata: Novedades.
 
+HAY QUE DARLE UN HILO A ESTAS SECCIONES
+
 * [Keystone Domains](https://wiki.openstack.org/wiki/Domains)
 * [Hierarchical Projects](https://specs.openstack.org/openstack/keystone-specs/specs/juno/hierarchical_multitenancy.html)
 * [Cells](https://docs.openstack.org/developer/nova/cells.html#manifesto)
@@ -15,7 +17,7 @@
 
 ### Posibles métodos de instalación, con especial énfasis en la automatización
 
-* [Presentación: Opciones de instalación de OpenStack VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/opciones_instalacion_openstack.html#/)
+* [Presentación: Opciones de instalación de OpenStack](https://iesgn.github.io/curso-ual17/opciones_instalacion_openstack.html#/)
 * [Opciones de instalación de OpenStack VERSIÓN EMERGYA!!!](doc/opciones_instalacion.md)
 
 ### Arquitectura de OpenStack. Aspectos a tener en cuenta y novedades en la arquitectura básica
