@@ -91,23 +91,39 @@ tema: white
 </section>
 
 <section>
-  <h3>Juju</h3>
-  
-   
+  <h3>Juju de Canonical</h3> 
+  <p><a href="https://www.ubuntu.com/cloud/juju">Juju</a> es una aplicación y servicio de modelado de Ubuntu que ayuda a implementar, gestionar y escalar aplicaciones en cualquier nube. Una de las posibilidades, proporcionada por Juju es el <a href="https://jujucharms.com/canonical-kubernetes/">despliegue de clusters k8s</a>.</p>
+  <ul>
+    <li>La construcción es gráfica y muy sencilla</li>
+    <li>Alto grado de configuración</li>
+    <li>Poca posibilidad de migración (Lock-in)</li>
+  </ul>
 </section>
 <section>
-  <h3>OpenShift</h3>
-  
+  <h3>OpenShift 3</h3>
+  <p><a href="https://www.openshift.com/">OpenShift 3</a> es la Plataforma como servicio (PaaS) de Red Hat que permite a los desarrolladores desarrollar, alojar y escalar rápidamente aplicaciones en un entorno de nube.</p>
+  <ul>
+    <li>Proporciona HA (varios maestros)</li>
+    <li>Proporciona soporte apara usar el LBaaS de OpenStack</li>
+    <li>Es un PaaS, un nivel de abstracción sobre el cluster k8s</li>
+    <li>Utiliza una versión más antigua de k8s</li>
+  </ul>
    
 </section>
 <section>
   <h3>Magnum</h3>
-  
+  <p><a href="https://wiki.openstack.org/wiki/Magnum">Magnum</a> es un componente de OpenStack que permite obtener un COE (Swarm, k8s, Mesos) montado sobre recursos de OS. (COEaaS!!!).</p>
+  <ul>
+    <li>Capacidad de provisión recursos OS a través de Heat.</li>
+    <li>Desde heat se configura completamente el cluster</li>
+    <li>Se necesitan imágenes preparadas: Fedora Atomic, CoreOs</li>
+    <li>Bajo nivel de madurez, por trabajar con tecnologías en constante cambio, configura k8s 1.2</li>
+  </ul>
    
 </section>
 <section>
   <h3>Murano</h3>
-  
+  <p><a href="https://wiki.openstack.org/wiki/Murano">Murano</a> rd un componente de OpenStack que introduce un catálogo de aplicaciones para OpenStack, y entre ellas, proporciona paquetes para desplegar y configurar el clúster de k8s a través de una interfaz de usuario amigable.</p>
    
 </section>
 
