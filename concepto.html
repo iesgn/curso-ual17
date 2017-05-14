@@ -1,0 +1,73 @@
+---
+layout: presentacion
+title: Opciones de instalación de Openstack
+tema: white
+---
+<section>
+  <h2>Desarrollo del concepto principal</h2>
+  <p>
+    <a href="http://albertomolina.wordpress.com">Alberto Molina Coballes</a> y
+    <a href="http://www.josedomingo.org">José Domingo Muñoz Rodríguez</a>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>
+      Theme
+      by <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a>
+    </small>
+  </p>
+</section>
+<section>
+  <h2>El concepto</h2>
+  <p>Las múltiples capas de software que vamos interponiendo entre el hardware y las aplicaciones precisan que las gestionemos automáticamente</p>
+</section>
+<section>
+  <h2>¿Qué capas?</h2>
+  <ul>
+    <li>Virtualización</li>
+    <li>Contenedores</li>
+    <li>SDN</li>
+    <li>SDS</li>
+    <li>Infraestructura como servicio: IaaS</li>
+    <li>Container Orchestration Engine: COE</li>
+  </ul>
+</section>
+<section>
+  <h2>IaaS</h2>
+  <ul>
+    <li>El usuario gestiona sus recursos hardware mediante API rest</li>
+    <li>Recursos <strong>elásticos</strong></li>
+    <li>Opciones:
+      <ul>
+	<li>Nube pública: AWS, GCE, Azure, ...</li>
+	<li>Nube privada con sw libre: <strong>OpenStack</strong>, Opennebula, ...</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+<section>
+  <h2>COE</h2>
+  <ul>
+    <li>Software para gestionar aplicaciones sobre contenedores</li>
+    <li>Orquestadores, herramientas de orquestación, COE, ...</li>
+    <li>Muy relacionados con <strong>microservicios</strong></li>
+    <li>Muy adecuado para gestión de versiones y actualizaciones y buenas prácticas como CI/CD</li>
+    <li>Opciones: Swarm, Mesos, DCOS, <strong>Kubernetes</strong></li>
+  </ul>
+</section>
+<section>
+  <h2>Kubernetes-OpenStack</h2>
+  <ul>
+    <li>OpenStack empieza a estabilizarse y gestiona eficazmente
+    virtualización de máquinas, redes y almacenamiento. El encaje de
+      contenedores no es tan claro</li>
+    <li>Kubernetes es capaz de gestionar múltiples nodos (máquinas
+    virtuales o físicas) en los que se ejecutan contenedores sobre
+      docker o rkt, utilizando SDN y SDS de una forma limitada.</li>
+    <li>¿Dónde ubicaríamos OpenStack y Kubernetes en el
+    famoso <a href="https://es.wikipedia.org/wiki/Ciclo_de_sobreexpectaci%C3%B3n">ciclo
+	de sobreexpectación</a>?</li>
+  </ul>
+</section>
