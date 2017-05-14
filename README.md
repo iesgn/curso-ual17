@@ -6,7 +6,7 @@
 * [Presentación: Curso de infraestructura Cloud con
   OpenStack](https://iesgn.github.io/curso-ual17/presentacion_curso_ual.html#/)
 
-* [Desarrollo del concepto principal](/doc/concepto.md)
+* [Desarrollo del concepto principal](https://iesgn.github.io/curso-ual17/concepto.html#/)
 
 ### Instalación automática de OpenStack
 
