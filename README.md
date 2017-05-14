@@ -1,51 +1,22 @@
 # Curso de infraestructura Cloud con OpenStack. Universidad de Almeria
   - Mayo 2017 
 
-### Presentación del curso
+### Introducción
 
 * [Presentación: Curso de infraestructura Cloud con
   OpenStack](https://iesgn.github.io/curso-ual17/presentacion_curso_ual.html#/)
 
 * [Desarrollo del concepto principal](/doc/concepto.md)
 
-### OpenStack Ocata: Novedades.
+### Instalación automática de OpenStack
 
-HAY QUE DARLE UN HILO A ESTAS SECCIONES
-
-* [Keystone Domains](https://wiki.openstack.org/wiki/Domains)
-* [Hierarchical Projects](https://specs.openstack.org/openstack/keystone-specs/specs/juno/hierarchical_multitenancy.html)
-* [Cells](https://docs.openstack.org/developer/nova/cells.html#manifesto)
-* [Placement API](https://docs.openstack.org/developer/nova/placement.html)
-
-### Posibles métodos de instalación, con especial énfasis en la automatización
-
+* [OpenStack. Novedades](openstack-novedades.html)
 * [Presentación: Opciones de instalación de OpenStack](https://iesgn.github.io/curso-ual17/opciones_instalacion_openstack.html#/)
-* [Opciones de instalación de OpenStack(doc/opciones_instalacion.md) <--- ¿REPETIDO?
-
-### Componentes de OpenStack
-
 * [Componentes principales de OpenStack](https://iesgn.github.io/curso-ual17/componentes_core.html#/)
 * [Otros componentes de OpenStack](https://iesgn.github.io/curso-ual17/otros_componentes.html#/)
-
-### Contenedores
-
-
 * [Arquitectura lógica VERSIÓN EMERGYA!!!](https://iesgn.github.io/curso-ual17/arquitectura_logica.html#/)
-
-
-### Despliegue automático de un escenario virtual sobre OpenStack con terraform
-
- * [Repositorio: terraform-openstack](https://github.com/iesgn/terraform-openstack/)
- * [Despliegue del escenario usando heat](https://github.com/iesgn/curso-ual17/blob/master/doc/heat.yaml)
-
-### Instalación automática de OpenStack Ocata con ansible
-
-* [Introducción a la instalación de openstack](https://iesgn.github.io/curso-ual17/instalacion_openstack.html#/)
- * [Repositorio: openstack-ubuntu-ansible](https://github.com/iesgn/openstack-ubuntu-ansible/tree/ocata)
- * [Configuración post-instalación](doc/post_instalacion.md)
-
-### Instalación automática de nuevos nodos de computación con ansible
-
+* [Despliegue de escenario con terraform: terraform-openstack](https://github.com/iesgn/terraform-openstack/)
+* [Despliegue del escenario con heat](https://github.com/iesgn/curso-ual17/blob/master/doc/heat.yaml)
 * [Instalación automática de nuevos nodos de computación con ansible](doc/instalacion_computo.md) 
 
 ### Contenedores en OpenStack 
