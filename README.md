@@ -8,7 +8,7 @@
 
 ### Instalación automática de OpenStack
 
-* [OpenStack. Novedades](openstack-novedades.html)
+* [Introducción a OpenStack](https://iesgn.github.io/curso-ual17/presentacion_openstack.html)
 * [Presentación: Opciones de instalación de OpenStack](https://iesgn.github.io/curso-ual17/opciones_instalacion_openstack.html#/)
 * [Componentes principales de OpenStack](https://iesgn.github.io/curso-ual17/componentes_core.html#/)
 * [Otros componentes de OpenStack](https://iesgn.github.io/curso-ual17/otros_componentes.html#/)
