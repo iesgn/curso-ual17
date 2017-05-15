@@ -108,7 +108,11 @@ Como hemos visto anteriormente los pods son recursos volátiles que puede elimin
 
 Un service es una abstracción que define un grupo lógico de pods y una política de acceso a los mismos. Los pods apuntan a un servicio normalmente por la propiedad label.  El service lo que hace es que un pod siempre sea accesible de la misma manera, de forma que aunque el pod se destruya o se modifique siempre sea accesible por la abstracción.
 
-Para crear un service para acceder al pod que hemos creado anterior, creamos un fichero nginx-svc.yaml con el siguiente contenido:
+Para crear un service para acceder al pod que hemos creado anetriormente, podemos ejecutar:
+
+	kubectl expose deployment my-nginx --type=NodePort	
+
+O creando un fichero nginx-svc.yaml con el siguiente contenido:
 
 	apiVersion: v1
 	kind: Service

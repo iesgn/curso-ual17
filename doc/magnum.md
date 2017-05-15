@@ -1,4 +1,4 @@
-# Despliegue de kubenetes en OpenStack usango Magnum
+# Despliegue de kubenetes en OpenStack usando Magnum
 
 Para más información puedes estudiar la [documentación oficial](https://docs.openstack.org/developer/magnum/userguide.html).
 
