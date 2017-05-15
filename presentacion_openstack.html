@@ -1,0 +1,268 @@
+---
+layout: presentacion
+title: Introducción a OpenStack
+tema: white
+---
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h2>Introducción a OpenStack</h2>
+  <p>
+    <a href="http://albertomolina.wordpress.com">Alberto Molina Coballes</a> y
+    <a href="http://www.josedomingo.org">José Domingo Muñoz Rodríguez</a>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h3>OpenStack</h3>
+  <p><em>&ldquo;Software libre para crear nubes públicas y
+  privadas &rdquo;</em></p>
+  <img src="img/openstack-software-diagram.png" alt="openstack-diagram"/>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h2>¿Por qué OpenStack?</h2>
+  <ul>
+    <li>Queremos instalar nuestro propio software para
+      proporcionar IaaS</li>
+    <li>Tenemos necesidad de infraestructura variable</li>
+    <li>Software libre</li>
+    <li>Proyecto estable, con muchos apoyos y muy
+      buenas perspectivas de futuro</li>
+    <li>Tiene muchas funcionalidades</li>
+    <li>Se está convirtiendo en el SO cloud ¿o era el kérnel?</li>
+    <li>Podemos utilizar hardware convencional</li>
+    <li>Cada vez es más fácil de instalar</li>
+  </ul>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h2>Otras alternativas</h2>
+  <ul>
+    <li><a href="http://opennebula.org/">OpenNebula</a>, <a href="http://cloudstack.apache.org/">CloudStack</a> y <a href="https://www.eucalyptus.com/">Eucalyptus</a>
+      <ul>
+        <li>Software libre</li>
+        <li>Proyectos más pequeños (ventajas e inconvenientes)</li>
+	<li>Menos funcionalidad</li>
+        <li>Probablemente más sencillas de instalar</li>
+        <li>Algunos componentes más maduros</li>
+	<li>¿Comparables a OpenStack Nova?</li>
+    </ul></li>
+    <li>VMware Vcloud
+      <ul>
+        <li>Software privativo</li>
+        <li>Optimizado para vSphere</li>
+        <li>No compite en IaaS pública</li>
+	<li><a href="http://www.vmware.com/products/openstack">VMware Integrated OpenStack (VIO)</a></li>
+      </ul>
+  </ul>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <section data-background="img/presentacion_openstack/openstack.png">
+    <h2>Inicios de OpenStack</h2>
+    <table>
+      <col style="width: 25%" />
+      <col style="width: 75%"/>
+      <tr>
+	<td style="text-align: center; vertical-align:middle;">
+	  <img src="img/rackspace.png" alt="rackspace" width="120"/></td>
+	<td>
+          <ul>
+            <li>Cloud propio desde 2005
+	      <ul>
+		<li>Cloud servers (IaaS)</li>
+		<li>Cloud files (StaaS)</li>
+	    </ul></li>
+            <li>Cambia a licencia libre en Abril 2010</li>
+          </ul>
+	</td>
+      </tr>
+      <tr>
+	<td style="text-align: center; vertical-align:middle;">
+	  <img src="img/nasa.png" alt="nasa" width="120"/></td>
+	<td>
+          <ul>
+            <li>Comienza a utilizar Eucalyptus, pero lo deja por
+	      ser ''open core''</li>
+            <li>Crea el software para IaaS Nebula</li>
+            <li>Cambia a licencia libre en Mayo 2010</li>
+          </ul>
+	</td>
+      </tr>
+      <tr>
+	<td style="text-align: center; vertical-align:middle;">
+	  <img src="img/openstack.jpg" alt="openstack"  width="120"/></td>
+	<td>
+          <ul>
+            <li>Ambas lo inician en Junio de 2010</li>
+            <li>OpenStack Nova &#8678; Nebula</li>
+            <li>OpenStack Swift &#8678; Cloud Files</li>
+          </ul>
+	</td>
+      </tr>
+    </table>
+  </section>
+  <section data-background="img/presentacion_openstack/openstack.png">
+    <h2>Principios de OpenStack</h2>
+    <p>En Septiembre de 2012 se cede el control del proyecto a
+      la <a href="http://www.openstack.org/foundation/">OpenStack
+	Foundation</a>
+      <ul>
+        <li><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Licencia
+            Apache 2.0</a>, no existe versión "enterprise"</li>
+        <li>Proceso de <a href="https://blueprints.launchpad.net/openstack">diseño abierto</a></li>
+        <li><a href="https://github.com/openstack/">Repositorios públicos de código fuente</a></li>
+        <li>Todos los procesos de desarrollo deben estar documentados y
+	  ser transparentes</li>
+        <li>Orientado para adoptar estándares abiertos</li>
+        <li>Diseño modular flexible mediante <a href="http://api.openstack.org/">APIs web</a></li>
+      </ul>
+      <a href="http://www.openstack.org/assets/openstack-welcome-guide.pdf">OpenStack Community. Welcome Guide</a>
+  </section>
+  <section data-background="img/presentacion_openstack/openstack.png">
+    <h2>Versiones de OpenStack</h2>
+    <table>
+      <col style="width: 34%" />
+      <col style="width: 16%" />
+      <col style="width: 34%" />
+      <col style="width: 16%" />
+      <tr>
+	<th>Versión</th>
+	<th>Fecha</th>
+	<th>Versión</th>
+	<th>Fecha</th>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Austin">Austin</a></td>
+	<td>Oct'10</td>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Bexar">Bexar</a></td>
+	<td>Feb'11</td>
+      </tr>
+      <tr>
+	<td>...</td>
+	<td>...</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Icehouse">Icehouse (2014.1)</a></td>
+	<td>Abr'14</td>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Juno">Juno (2014.2)</a></td>
+	<td>Oct'14</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Kilo">Kilo (2015.1)</a></td>
+	<td>Abr'15</td>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Liberty">Liberty</a></td>
+	<td>Oct'15</td>
+      </tr>
+      <tr>
+	<td><a href="https://releases.openstack.org/mitaka/index.html">Mitaka</a></td>
+	<td>Abr'16</td>
+	<td><a href="https://releases.openstack.org/newton/index.html">Newton</a></td>
+	<td>Oct'16</td>
+      </tr>
+      <tr>
+	<td><a href="https://releases.openstack.org/ocata/index.html">Ocata</a></td>
+	<td>Feb'17</td>
+	<td><a href="https://releases.openstack.org/pike/index.html">Pike</a></td>
+	<td>Aug'17</td>
+      </tr>
+    </table>
+    <p><small><a href="https://releases.openstack.org/">href="https://releases.openstack.org/"</a></small></p>
+  </section>
+  <section>
+    <h2>Desarrollo colaborativo de OpenStack</h2>
+    <ul>
+      <li>La empresa española <a href="http://bitergia.com/">Bitergia</a> es la encargada de realizar el análisis del desarrollo del proyecto OpenStack</li>
+      <li><a href="http://blog.bitergia.com/2015/04/30/kilo-the-new-openstack-release/">Kilo: the new OpenStack release</a></li>
+      <li><a href="http://activity.openstack.org/dash/browser/">OpenStack activity dashboard</a></li>
+      <li><a href="https://6d8316ac574a2a54a69bb17a7d161ed6.us-east-1.aws.found.io/#/dashboard/OpenStack-Git-Activity-v2">OpenStack code contributions dashboard</a></li>
+  </section>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <section>
+    <h2>OpenStack Foundation</h2>
+    <ul>
+      <li>Se funda para promover el desarrollo, distribución y adopción de OpenStack</li>
+      <li>Abierta a cualquiera que quiera participar</li>
+      <li>Participación individual gratuita como <a href="https://www.openstack.org/join/register/?membership-type=community">Community member</a> o <a href="https://www.openstack.org/join/register/?membership-type=foundation">Foundation member</a></li>
+      <li>Las empresas pueden participar como Platinum members, Gold members, Corporate Sponsors o Supporting Organizations</li>
+    </ul>
+    <small><p><a href="https://www.openstack.org/join/">Join The OpenStack Foundation</a></p>
+    <p><a href="www.openstack.org/foundation/companies/">Companies Supporting The OpenStack Foundation</a></p>
+    <p><a href="https://www.openstack.org/legal/">OpenStack Legal Documents</a></p></small>
+  </section>
+  <section>
+    <h2>OpenStack Foundation. Organización</h2>
+    <ul>
+      <li><a href="https://www.openstack.org/foundation/tech-committee/">Comité Técnico</a>. Formado por 13 miembros elegidos entre las personas que contribuyen activamente al proyecto</li>
+      <li><a href="https://www.openstack.org/foundation/board-of-directors/">Junta directiva</a>: Organización y financiación del proyecto. 8 miembros platinum, 8 miembros gold y 8 individuales elegidos por votación.</li>
+      <li><a href="https://www.openstack.org/foundation/user-committee/">Comité de usuarios</a>. 3 miembros encargados de la comunicación con las diferentes comunidades de usuarios</li>
+      <li><a href="https://www.openstack.org/foundation/staff">Personal propio</a>
+    </ul>      
+  </section>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <section>
+    <h2>Proyectos de OpenStack</h2>
+  </section>
+  <section>
+    <h2>Integrated release</h2>
+    <ul>
+      <li>Modelo de desarrollo hasta OpenStack Kilo</li>
+      <li>Proyectos oficiales</li>
+      <li>Proyectos incubados</li>
+      <li>Publicación conjunta: 201X.Y</li>
+      <li>Nivel de madurez variable</li>
+      <li>Resto de Ecosistema</li>
+     </ul>
+  </section>
+  <section>
+    <h2>Big Tent</h2>
+    <ul>
+      <li>"Refactorizando la comunidad"</li>
+      <li>Enfoque más inclusivo</li>
+      <li>Proyecto OpenStack si sus objetivos y modelo de desarrollo
+      son los de OpenStack y se someten a la supervisión del TC</li>
+      <li><a href="http://governance.openstack.org/reference/projects/">OpenStack
+      Project Teams</a></li>
+      <li><a href="http://governance.openstack.org/reference/tags/">Tags</a></li>
+    </ul>
+    <small><p><a href="https://www.youtube.com/watch?v=TTe_bZtEKxo">The Big
+	Tent - a look at the new OpenStack projects governance</a></p>
+    <p><a href="https://github.com/openstack/governance/blob/master/resolutions/20141202-project-structure-reform-spec.rst">OpenStack project structure reform specification</a></p></small>
+  </section>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <section>
+    <h2>Servicios de OpenStack</h2>
+    <p><a href="https://www.openstack.org/software/">OpenStack
+      Services</a></p>
+    <p><a href="https://www.openstack.org/software/project-navigator">OpenStack
+      Project Navigator</a></p>
+  </section>
+  <section>
+    <h2>Características generales</h2>
+    <ul>
+      <li>Módulos independientes</li>
+      <li>Escritos en Python y disponibles en <a href="https://github.com/openstack/">Github</a></li>
+      <li>Oslo: OpenStack common libraries</li>
+      <li>Base de datos por componente</li>
+      <li>Comunicación vía API web</li>
+      <li>AMQP</li>
+      <li>Integrados con <a href="http://docs.openstack.org/developer/tempest/">tempest</a></li>
+      <li>Incluídos en <a href="http://docs.openstack.org/developer/devstack/">devstack</a></li>
+    </ul>
+  </section>
+</section>
+<section>
+  <h2>Novedades en Ocata</h2>
+  <p>En relación a Kilo/Liberty</p>
+  <ul>
+    <li><a href="https://developer.openstack.org/api-ref/identity/v3/">Keystone v3</a></li>
+    <li><a href="https://wiki.openstack.org/wiki/Domains">Keystone Domains</a></li>
+    <li><a href="https://docs.openstack.org/developer/nova/cells.html">Nova Cells</a></li>
+    <li><a href="https://docs.openstack.org/developer/nova/placement.html">Nova placement API</a></li>
+    <li><a href="https://docs.openstack.org/ocata/networking-guide/config-lbaas.html">Neutron LBaaS v2</a></li>
+  </ul>
+</section>
+
