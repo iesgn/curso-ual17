@@ -79,30 +79,30 @@ Cramos el servicio y comprobamos que se ha creado:
 
 ## Creación del despliegue de la aplicación letschat
 
-DE la misma manera que anteriormente ahora creamos el fichero `letschat-deploy-yaml`:
+De la misma manera que anteriormente ahora creamos el fichero `letschat-deploy-yaml`:
 
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  labels:
-    name: letschat
-  name: letschat-controller
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      name: letschat
-  template:
-    metadata:
-      labels:
-        name: letschat
-    spec:
-      containers:
-      - image: sdelements/lets-chat
-        name: letschat
-        ports:
-        - containerPort: 3000
-          name: http-server
+	apiVersion: apps/v1beta1
+	kind: Deployment
+	metadata:
+	  labels:
+	    name: letschat
+	  name: letschat-controller
+	spec:
+	  replicas: 1
+	  selector:
+	    matchLabels:
+	      name: letschat
+	  template:
+	    metadata:
+	      labels:
+	        name: letschat
+	    spec:
+	      containers:
+	      - image: sdelements/lets-chat
+	        name: letschat
+	        ports:
+	        - containerPort: 3000
+	          name: http-server
 
 Lo creamos y comprobamos su creación:
 
