@@ -121,4 +121,4 @@ Para terminar vamos a instalar una aplicación web desarrollada en node.js, que 
 * [Enlazando contenedores docker](http://www.josedomingo.org/pledin/2016/02/enlazando-contenedores-docker/)
 * [Creando servidores docker con Docker Machine](http://www.josedomingo.org/pledin/2016/05/creando-servidores-docker-con-docker-machine/)
 * [Gestión del almacenamiento en docker](http://www.josedomingo.org/pledin/2016/05/gestion-del-almacenamiento-en-docker/)
-* [gestionando el almacenamiento docker con Dockerfile](http://www.josedomingo.org/pledin/2016/11/gestionando-el-almacenamiento-docker-con-dockerfile/)
+* [Gestionando el almacenamiento docker con Dockerfile](http://www.josedomingo.org/pledin/2016/11/gestionando-el-almacenamiento-docker-con-dockerfile/)
