@@ -56,7 +56,7 @@ Ahora podemos acceder al puerto 8080 de nuestra máquina:
 
 ## Creación de imágenes con Dockerfile
 
-Si queremos personalizar una imagen, podemos definirla a partir de una imagen base en un fichero Dockerfile, y posteriormente crearla con el comando `docker build`. Por ejemplo podemos tener un fichero `Dockerfile` (denetro de un directorio `my_nginx`) con el siguiente contenido:
+Si queremos personalizar una imagen, podemos definirla a partir de una imagen base en un fichero Dockerfile, y posteriormente crearla con el comando `docker build`. Por ejemplo podemos tener un fichero `Dockerfile` (dentro de un directorio `my_nginx`) con el siguiente contenido:
 
 	FROM nginx
 	ADD ["index.html","/usr/share/nginx/html"]
@@ -94,7 +94,7 @@ Y creamos un nuevo contenedor:
 	ad717f6a857c        my_nginx            "nginx -g 'daemon ..."   9 seconds ago       Up 9 seconds        0.0.0.0:8081->80/tcp   contendor-my-nginx
 	307230c23c3b        nginx               "nginx -g 'daemon ..."   29 minutes ago      Up 21 minutes       0.0.0.0:8080->80/tcp   contendor-nginx
 
-Y accedemos al nuvo contenedor:
+Y accedemos al nuevo contenedor:
 
 ![docker](img/docker2.png)
 
