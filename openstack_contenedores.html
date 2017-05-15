@@ -21,23 +21,20 @@ tema: white
 <section>
   <h3>Hypervisor LXC</h3>
   <ul>
-    <li><a href="https://docs.openstack.org/ocata/config-reference/compute/hypervisor-lxc.html">Usar LCX como hipervisor</a></li>
-    <li>El proyecto de usar Docker como hypervisor ha desaparecido en OpenSatck</li>
-    <li>Podemos crear muchas más contenedores que MV</li>
+    <li>LXC: Contenedores de sistemas, no de aplicación</li>
+    <li><a href="https://docs.openstack.org/ocata/config-reference/compute/hypervisor-lxc.html">Usar LXC como hipervisor</a></li>
+    <li>El proyecto de usar Docker a través de nova (nova-docker) se ha abandonado</li>
+    <li>Podemos crear muchos más contenedores que MV</li>
     <li>La creación de los contenedores es mucho más rápida</li>
-    <li>Podemos tener nodos de computo con KVM y otros con LXC (zonas distintas)</li>
-    <li>No tenemos a nuestra disponibilidad todas las opciones de OS: <a href="https://docs.openstack.org/developer/nova/support-matrix.html">Feature Support Matrix</a></li>
+    <li>Podemos dos zonas de disponibilidad Una con KVM y otra con LXC</li>
+    <li>Opciones de nova limitadas: <a href="https://docs.openstack.org/developer/nova/support-matrix.html">Feature Support Matrix</a></li>
     <li>Necesitamos imágenes para LXC</li>
     <li>No podemos ejecutar otros sistemas operativos</li>
-  </ul>
-  
+  </ul>  
 </section>
 
-
-
 <section>
-  <h3>KubeAdm y MiniKube</h3>
-  
+  <h3>KubeAdm y MiniKube</h3>  
     <p>No están diseñado específicamente para Openstack. Delegan entornos de pruebas para probar k8s. No ofrecen soluciones para integrarse con OpenStack.</p>
   <table>
     <tr>
@@ -52,26 +49,18 @@ tema: white
   
 </section>
 
-
-
 <section>
-  <h3>Instalación manual de k8s</h3>
-  
+  <h3>Instalación manual de k8s</h3>  
     <p>Instalar manualmente los distintos componentes del cluster. Construcción de cluster en producción, con características específicas, alta disponibilidad. </p>
     <ul>
       <li>Tenemos que decidir en que infraestructura vamos a realizar la instalación: Máquina local, virtual, cloud, bare metal,...</li>
       <li>Tenemos el control de la instalación y comprendemos perfectamente la arquitectura...</li>
       <li>...pero, puede ser complicado según nuestras necesidades.</li>
     </ul>
-
-
 </section>
 
-
-
 <section>
-  <h3>Heat (k8s SIG)</h3>
-  
+  <h3>Heat (k8s SIG)</h3>  
     <p><a href="https://github.com/kubernetes/community/tree/master/sig-openstack">Kubernetes OpenStack SIG</a> (Grupo de Interés) (distintos grupos para desplegar K8s en distintos entornos) desarrolla <a href="https://github.com/kubernetes/kubernetes/tree/master/cluster/openstack-heat">plantillas Heat</a> que permiten desplegar un cluster K8S en Openstack. </p>
     <ul>
       <li>Esta solución facilita la provisón de recursos de OS</li>
@@ -81,11 +70,10 @@ tema: white
 
 <section>
   <h3>Kargo (KubeSpray)</h3>
-  
     <p><a href="https://github.com/kubernetes-incubator/kargo">Kargo</a> es un proyecto Open Source que le permite implementar un cluster de k8s en Bare Metal, AWS, GCE y OS usando una combinación de Terraform y Ansible.</p>
     <ul>
       <li>Capaz de aprovisionar recursos de OS para deplegar cluster de k8s Multi-Master / HA</li>
-      <li>Es muy configurable, y funciona con las distribuciones linux más populares.</li>
+      <li>Es muy configurable y funciona con las distribuciones linux más populares.</li>
       <li>La instalación es complicada, para usuarios avanzados con conocimiento en automatización con ansible</li>
     </ul>
 </section>
@@ -99,6 +87,7 @@ tema: white
     <li>Poca posibilidad de migración (Lock-in)</li>
   </ul>
 </section>
+
 <section>
   <h3>OpenShift 3</h3>
   <p><a href="https://www.openshift.com/">OpenShift 3</a> es la Plataforma como servicio (PaaS) de Red Hat que permite a los desarrolladores desarrollar, alojar y escalar rápidamente aplicaciones en un entorno de nube.</p>
@@ -107,24 +96,32 @@ tema: white
     <li>Proporciona soporte apara usar el LBaaS de OpenStack</li>
     <li>Es un PaaS, un nivel de abstracción sobre el cluster k8s</li>
     <li>Utiliza una versión más antigua de k8s</li>
-  </ul>
-   
+  </ul>   
 </section>
+
 <section>
   <h3>Magnum</h3>
-  <p><a href="https://wiki.openstack.org/wiki/Magnum">Magnum</a> es un componente de OpenStack que permite obtener un COE (Swarm, k8s, Mesos) montado sobre recursos de OS. (COEaaS!!!).</p>
+  <p><a href="https://wiki.openstack.org/wiki/Magnum">Magnum</a> es un componente de OpenStack que permite obtener un COE (Swarm, k8s, Mesos) montado sobre recursos de OS. (COEaaS).</p>
   <ul>
     <li>Capacidad de provisión recursos OS a través de Heat.</li>
     <li>Desde heat se configura completamente el cluster</li>
     <li>Se necesitan imágenes preparadas: Fedora Atomic, CoreOs</li>
     <li>Bajo nivel de madurez, por trabajar con tecnologías en constante cambio, configura k8s 1.2</li>
   </ul>
-   
 </section>
+
+<section>
+  <h3>Zun</h3>
+  <p><a href="https://wiki.openstack.org/wiki/Zun">Zun</a></p>
+  <ul>
+    <li>Gestión de contenedores, no de COE</li>
+    <li>Proyecto muy reciente</li>
+  </ul>
+</section>
+
 <section>
   <h3>Murano</h3>
-  <p><a href="https://wiki.openstack.org/wiki/Murano">Murano</a> es un componente de OpenStack que introduce un catálogo de aplicaciones para OpenStack, y entre ellas, proporciona paquetes para desplegar y configurar el cluster de k8s a través de una interfaz de usuario amigable.</p>
-   
+  <p><a href="https://wiki.openstack.org/wiki/Murano">Murano</a> es un componente de OpenStack que introduce un catálogo de aplicaciones para OpenStack, y entre ellas, proporciona paquetes para desplegar y configurar el cluster de k8s a través de una interfaz de usuario amigable.</p>   
 </section>
 
 
