@@ -23,7 +23,7 @@ Instalamos el repositorio ofical de docker:
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
 
 
-E instalamos docker:
+A continuación, instalamos docker:
 
 	sudo apt-get update
 	sudo apt-get install docker-ce
@@ -107,10 +107,12 @@ Para terminar vamos a instalar una aplicación web desarrollada en node.js, que 
 
 	docker run  --name contenedor-letschat --link contendor-mongo:mongo -p 8082:8080 -d sdelements/lets-chat
 
+![docker](img/docker3.png)
+
 ## Más información
 
 * [Documentación de docker](https://docs.docker.com/)
-* Introducción a docker](http://www.josedomingo.org/pledin/2015/12/introduccion-a-docker/)
+* [Introducción a docker](http://www.josedomingo.org/pledin/2015/12/introduccion-a-docker/)
 * [Primeros pasos con Docker](http://www.josedomingo.org/pledin/2016/02/primeros-pasos-con-docker/)
 * [Ejecutando una aplicación web en docker](http://www.josedomingo.org/pledin/2016/02/ejecutando-una-aplicacion-web-en-docker/)
 * [Dockerfile: Creación de imágenes docker](http://www.josedomingo.org/pledin/2016/02/dockerfile-creacion-de-imagenes-docker/)
