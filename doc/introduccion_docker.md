@@ -54,7 +54,7 @@ Ahora podemos acceder al puerto 8080 de nuestra máquina:
 
 ![docker](img/docker1.png)
 
-## Creación de imágnes con Dockerfile
+## Creación de imágenes con Dockerfile
 
 Si queremos personalizar una imagen, podemos definirla a partir de una imagen base en un fichero Dockerfile, y posteriormente crearla con el comando `docker build`. Por ejemplo podemos tener un fichero `Dockerfile` (denetro de un directorio `my_nginx`) con el siguiente contenido:
 
@@ -98,3 +98,25 @@ Y accedemos al nuvo contenedor:
 
 ![docker](img/docker2.png)
 
+## Despligue de una aplicación web 
+
+Para terminar vamos a instalar una aplicación web desarrollada en node.js, que utiliza una base de datos mongodb, para ello vamos acrear dos contenedores:
+
+
+	docker run --name contendor-mongo -d mongo
+
+	docker run  --name contenedor-letschat --link contendor-mongo:mongo -p 8082:8080 -d sdelements/lets-chat
+
+## Más información
+
+* [Documentación de docker](https://docs.docker.com/)
+* Introducción a docker](http://www.josedomingo.org/pledin/2015/12/introduccion-a-docker/)
+* [Primeros pasos con Docker](http://www.josedomingo.org/pledin/2016/02/primeros-pasos-con-docker/)
+* [Ejecutando una aplicación web en docker](http://www.josedomingo.org/pledin/2016/02/ejecutando-una-aplicacion-web-en-docker/)
+* [Dockerfile: Creación de imágenes docker](http://www.josedomingo.org/pledin/2016/02/dockerfile-creacion-de-imagenes-docker/)
+* [Ejemplos de ficheros Dockerfile, creando imágenes docker](http://www.josedomingo.org/pledin/2016/02/ejemplos-de-ficheros-dockerfile-creando-imagenes-docker/)
+* [Gestionando el registro Docker Hub](http://www.josedomingo.org/pledin/2016/02/gestionando-el-registro-docker-hub/)
+* [Enlazando contenedores docker](http://www.josedomingo.org/pledin/2016/02/enlazando-contenedores-docker/)
+* [Creando servidores docker con Docker Machine](http://www.josedomingo.org/pledin/2016/05/creando-servidores-docker-con-docker-machine/)
+* [Gestión del almacenamiento en docker](http://www.josedomingo.org/pledin/2016/05/gestion-del-almacenamiento-en-docker/)
+* [gestionando el almacenamiento docker con Dockerfile](http://www.josedomingo.org/pledin/2016/11/gestionando-el-almacenamiento-docker-con-dockerfile/)
