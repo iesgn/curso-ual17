@@ -23,10 +23,12 @@
 * [10 formas de trabajar con contenedores en OpenStack](https://iesgn.github.io/curso-ual17/openstack_contenedores.html#/)
 * [Introducción a docker](doc/introduccion_docker.md)
 * [Introducción a kubernetes](doc/introduccion_kubernetes.md)
+* [minikube: instalación de kubernetes en local](https://github.com/kubernetes/minikube)
 * [Instalación de kubernetes en OpenStack con kubeadm](doc/kubeadm.md)
 * [Despliegue de un servicio en kubernetes](doc/despliegue_servicio.md)
 * [Despliegue de una aplicación web en kubernetes](doc/despliegue_aplicacion.md)
 * [Introducción a OpenShift 3](doc/introduccion_openshift.md)
+* [minishift: instalación de Openshift 3 en local](https://github.com/minishift/minishift)
 * [Despliegue de kubenetes en OpenStack usando Magnum](doc/magnum.md)
 
 ### Otros
