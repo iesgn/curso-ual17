@@ -1,4 +1,4 @@
-# Curso de infraestructura Cloud con OpenStack. Universidad de Almeria. Mayo 2017 
+# Curso de infraestructura Cloud con OpenStack. Universidad de Almeria. Mayo 2017
 
 ### Introducción
 
@@ -16,9 +16,9 @@
 * [Despliegue de escenario con terraform: terraform-openstack](https://github.com/iesgn/terraform-openstack/)
 * [Despliegue del escenario con heat](https://github.com/iesgn/curso-ual17/blob/master/doc/heat.yaml)
 * [Instalación multinodo de OpenStack Ocata en Ubuntu 16.04 LTS](https://github.com/iesgn/openstack-ubuntu-ansible)
-* [Instalación automática de nuevos nodos de computación con ansible](doc/instalacion_computo.md) 
+* [Instalación automática de nuevos nodos de computación con ansible](doc/instalacion_computo.md)
 
-### Contenedores en OpenStack 
+### Contenedores en OpenStack
 
 * [10 formas de trabajar con contenedores en OpenStack](https://iesgn.github.io/curso-ual17/openstack_contenedores.html#/)
 * [Introducción a docker](doc/introduccion_docker.md)
@@ -27,7 +27,7 @@
 * [Instalación de kubernetes en OpenStack con kubeadm](doc/kubeadm.md)
 * [Despliegue de un servicio en kubernetes](doc/despliegue_servicio.md)
 * [Despliegue de una aplicación web en kubernetes](doc/despliegue_aplicacion.md)
-* [Introducción a OpenShift 3](doc/introduccion_openshift.md)
+* [Introducción a OpenShift 3](doc/introduccion_openshift.md
 * [minishift: instalación de Openshift 3 en local](https://github.com/minishift/minishift)
 * [Despliegue de kubenetes en OpenStack usando Magnum](doc/magnum.md)
 
@@ -36,5 +36,3 @@
 * Instalación automática de OpenStack Ocata en servidores físicos.
 * [Herramientas de gestión de OpenStack en IESGN](https://github.com/iesgn/iesgncloud)
 * [Have Fun with OpenStack and IPv6 Prefix Delegation](http://www.debug-all.com/?p=187)
-
-
