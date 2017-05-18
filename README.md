@@ -16,6 +16,7 @@
 * [Despliegue de escenario con terraform: terraform-openstack](https://github.com/iesgn/terraform-openstack/)
 * [Despliegue del escenario con heat](https://github.com/iesgn/curso-ual17/blob/master/doc/heat.yaml)
 * [Instalación multinodo de OpenStack Ocata en Ubuntu 16.04 LTS](https://github.com/iesgn/openstack-ubuntu-ansible)
+* [Configuración post-instalación](doc/post_instalacion.md)
 * [Instalación automática de nuevos nodos de computación con ansible](doc/instalacion_computo.md)
 
 ### Contenedores en OpenStack
