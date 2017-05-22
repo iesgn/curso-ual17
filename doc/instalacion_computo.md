@@ -12,7 +12,7 @@ Actualizamos el sistema e instalamos los paquetes necesarios:
 
 	github/terraform-openstack/conf$ fab -H 172.22.200.62 main
 	
-## Modificación en la reseta ansible
+## Modificación en la receta ansible
 
 En el fichero `ansible_hosts` configuramos el nuevo nodo de computación:
 
