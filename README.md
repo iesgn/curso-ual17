@@ -1,4 +1,4 @@
-# Curso de infraestructura Cloud con OpenStack. Universidad de Almeria. Mayo 2017
+# Curso de infraestructura Cloud con OpenStack. Universidad de Almería. Mayo 2017
 
 ### Introducción
 
