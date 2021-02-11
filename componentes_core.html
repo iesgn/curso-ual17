@@ -47,7 +47,7 @@ tema: white
     <li>Gestión de los Endpoints</li>
     <li>Autenticación básica: SQL o LDAP</li>
     <li>Otras opciones de autenticación: SAML, OpenID, Mecanismo externo (vía WSGI)</li>
-    <li>No hay roles por defecto. Habitualmente "admin" y "_member_"</li>
+    <li>No hay roles por defecto. Habitualmente "admin" y "member"</li>
     <li>Autorización mediante políticas (policy.json)
   </ul>
 </section>
@@ -78,7 +78,7 @@ tema: white
   <h2>Cinder (Block Storage Service)</h2>
   <ul>
     <li>Gestión de los volúmenes</li>
-    <li>Múltiples "backends"</li>
+    <li>Múltiples "backends": <a href="https://docs.openstack.org/cinder/rocky/reference/support-matrix.html">Cinder Driver Support Matrix</a></li>
     <li>Varios componentes: cinder-api, cinder-scheduler y cinder-volume</li>
   </ul>
 </section>
@@ -98,13 +98,14 @@ tema: white
     <li>Encargado de las redes, subredes, routers, etc.</li>
     <li>Modular Layer 2 (ML2):
       <ul>
-	<li>Varios tipos: local,flat,vlan,gre,vxlan</li>
+	<li>Varios tipos: flat,vlan,vxlan,gre,geneve</li>
 	<li>Varios mecanismos:  Arista, Brocade, Cisco, Linux bridge, Hyper-V, midonet,
-	  nuage, OVS, OpenContrail, ...</li>
+	  nuage, OVS, OVN, SRIOV, OpenContrail, ...</li>
       </ul>
     </li>
     <li>DHCP y routers definidos en el nodo de red (linux network namespaces)</li>
     <li>Servicio de metadatos a cada subred en modo proxy</li>
-    <li>Puede proporcionar LBaaS, VPNaaS y FWaaS</li>
+    <li>Configuraciones adicionales: BGP, integración DNS, IPv6, QoS, SR-IOV, Trunking</li>
+    <li>Puede proporcionar VPNaaS y FWaaS</li>
   </ul>
 </section>
