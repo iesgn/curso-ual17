@@ -71,28 +71,18 @@ tema: white
     <li>Existen "recetas" elaboradas con las herramientas de
     automatización de la configuración más populares:</li> 
       <ul>
-        <li><a href="http://docs.opscode.com/openstack.html">Chef</a> - <a href="https://github.com/stackforge/openstack-chef-repo">Repositorio GitHub</a></li>
-        <li><a href="http://github.com/puppetlabs/puppetlabs-openstack">Puppet</a> - Ejemplo: <a href="https://www.rdoproject.org/Main_Page">RDO</a> </li>
-	<li><a href="https://github.com/openstack/openstack-salt">Salt</a></li>
+        <li><a href="https://opendev.org/openstack/openstack-chef/">OpenStack-Chef</a></li>
+        <li><a href="https://opendev.org/openstack?sort=recentupdate&q=puppet">Puppet modules</a> o <a href="https://www.rdoproject.org/">RDO</a> </li>
+	<li><a href="https://opendev.org/openstack?tab=&sort=recentupdate&q=salt">Salt formulas</a></li>
         <li>Ansible:
 	  <ul>
-	    <li><a href="https://github.com/openstack/openstack-ansible">OpenStack Ansible</a></li>
+	    <li>Proyecto oficial: <a href="https://opendev.org/openstack/openstack-ansible">OpenStack Ansible</a></li>
 	    <li>Muy utilizado con libros de jugadas elaborados por los
 	      usuarios.</li>	    
-	    <li>Nuestro caso: <a href="https://github.com/iesgn/openstack-ubuntu-ansible">https://github.com/iesgn/openstack-ubuntu-ansible</a></li>
+	    <li>Nuestro caso: <a href="https://github.com/iesgn/openstack-debian-ansible">https://github.com/iesgn/openstack-debian-ansible</a></li>
 	  </ul>
 	</li>
       </ul>
-  </ul>
-</section>
-<section>
-  <h2>OpenStack Fuel</h2>
-  <ul>
-    <li>Proyecto oficial respaldado por Mirantis</li>
-    <li>Incluye un instalador web</li>
-    <li>Incluye soporte en alta disponibilidad</li>
-    <li><a href="https://docs.openstack.org/developer/fuel-docs/userdocs/fuel-install-guide.html">Fuel
-    installation guide</a></li>
   </ul>
 </section>
 
@@ -117,48 +107,24 @@ tema: white
 </section>
 
 <section>
-  <h2>Instalación usando distros específicas</h2>
-  <ul>
-    <li>Existen
-    varias <a href="https://www.openstack.org/marketplace/distros/">distribuciones
-    de OpenStack</a>, libres o no, muchas de ellas te ofrecen
-    herramientas específicas para realizar una implantación, por ejemplo:
-      <ul>
-        <li><a href="https://software.mirantis.com/openstack-download-form/">Mirantis
-        Managed OpenStack</a></li>
-	<li><a href="http://www.vmware.com/products/openstack">VMware
-	    Integrated OpenStack</a></li>
-	<li><a href="http://e.huawei.com/es/products/cloud-computing-dc/cloud-computing/fusionsphere/fusionsphere">Huawei
-	FusionSphere</a></li>
-	<li><a href="http://www8.hp.com/us/en/cloud/hphelion-openstack.html"><strike>HP
-	Helion</strike></a></li>
-      </ul>
-    </li>
-  </ul>
-</section>
-
-<section>
   <h2>Ubuntu</h2>
   <p>Además de empaquetar cada versión de OpenStack para Ubuntu LTS,
   está desarrollando su propia pila de aplicaciones (no sólo para
   OpenStack):</p> 
   <ul>
-    <li>snap </li>
-    <li>conjure-up</li>
-    <li>autopilot</li>
-    <li>juju</li>
+    <li>snap</li>
     <li>MaaS</li>
-    <li>Lanscape</li>
+    <li>juju</li>
   </ul>
+  <a href="https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/latest/index.html">OpenStack Charms Deployment Guide</a>
 </section>
 
 <section>
   <h2>Red Hat</h2>
   <ul>
-    <li>Red Hat OpenStack Platform</li>
-    <li>TripleO</li>
+    <li><a href="https://www.redhat.com/en/technologies/linux-platforms/openstack-platform">Red Hat OpenStack Platform</a></li>
+    <li>TripleO (<a href="https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/16.1/html/director_installation_and_usage/index">OpenStack Director</a></li>
     <li>Ceph</li>
-    <li>OpenStack Director</li>
   </ul>
 </section>
 
@@ -166,9 +132,15 @@ tema: white
   <h2>OpenStack Kolla</h2>
   <ul>
     <li>Proporciona contenedores docker y libros de jugadas de ansible para gestionar nubes de OpenStack</li>
+    <li><a href="https://opendev.org/openstack/kolla">Kolla</a></li>
     <li><a href="https://docs.openstack.org/developer/kolla-ansible/">kolla-ansible</a></li>
     <li><a href="https://docs.openstack.org/developer/kolla-kubernetes/">kolla-kubernetes</a></li>
   </ul>
+</section>
+
+<section>
+  <h2>OpenStack-Helm</h2>
+  Proporciona charts de Helm para desplegar OpenStack sobre Kubernetes: <a href="https://opendev.org/openstack/openstack-helm">OpenStack-Helm</a>
 </section>
 
 <section>
